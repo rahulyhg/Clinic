@@ -18,10 +18,10 @@
 					</button>
 					
 				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
-					<li><a href="#">Patient</a></li>
+					<li><a href="Patient/login.php">Patient</a></li>
 					<li class="divider"></li>
-					<li><a href="#">Doctor</a></li>
-					<li><a href="Receptionist/createpatient.php">Receptionist</a></li>
+					<li><a href="Doctor/login.php">Doctor</a></li>
+					<li><a href="Receptionist/login.php">Receptionist</a></li>
 			  </ul>
 			</div>
 		  </div>
