@@ -14,9 +14,8 @@
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Viewing As: <span class="caret"></span>
+					Receptionist <span class="caret"></span>
 					</button>
-					
 				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
 					<li><a href="#">Patient</a></li>
 					<li class="divider"></li>
@@ -33,49 +32,30 @@
                     <ul class="nav">
                         <li><a href="#">View Appointments</a></li>
 						<li><a href="#">Set Appointment</a></li>
-                        <li class="active"><a href="#">Create New Patient</a></li>
+                        <li><a href="#">Create New Patient</a></li>
                         <li><a href="#">Patient Search</a></li>
 
                     </ul>
                 </div>
             </div>
         </div>
-
-
     </div>
-	
-	<html>
-<body>
 
-<br>
+
+
+
+</body>
+
 
 <form form style="text-align:center" action="insert.php" method="post">
   <fieldset>
-<legend>Enter Patient Information:</legend>
-CareCard #: <input type="text" name="cc"><br><br>
-First Name: <input type="text" name="firstname"><br>
-Last Name: <input type="text" name="lastname"><br>
-Date Of Birth: <input type="text" name="dob"><br>
-Address: <input type="text" name="addr"><br>
-Phone #: <input type="text" name="phn"><br><br>
-
+<legend>Enter Login Credentials:</legend>
+<br>
+ Staff ID: <input type="text" name="staffid"><br>
+Surname: <input type="text" name="lastname"><br>
 <input type="submit">
   </fieldset>
 </form>
-
-<hr>
-</body>
-</html>
-
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
-	
-
-</div>
-
-
-	
-	
-	
-	
-</body>
+</html>

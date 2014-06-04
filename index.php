@@ -10,8 +10,8 @@
 <body>
 
     <div class="container">
-        <h1><a href="index.php">The Clinic</a></h1>
-		
+        <h1><a href="index.php">The Clinic</a>
+		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					Viewing As: <span class="caret"></span>
@@ -23,8 +23,9 @@
 					<li><a href="#">Doctor</a></li>
 					<li><a href="Receptionist/createpatient.php">Receptionist</a></li>
 			  </ul>
-			 
 			</div>
+		  </div>
+		  </h1>
 
         <div class="navbar">
             <div class="navbar-inner">
@@ -39,11 +40,12 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-	
-<hr>
+
+<h1 align="center"> Welcome to our Clinic!</h1>
+<p align="center"><img border="1" src="img/MainPic.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
+
+
 </body>
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
