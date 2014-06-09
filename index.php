@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+//Create connection
+$con=mysqli_connect("localhost","root","0123456","clinic");
+//Check connection
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+?>
+
 <html>
 <head>
     <meta charset="utf-8">
