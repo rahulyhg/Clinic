@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<?php
-//Create connection
-$con=mysqli_connect("localhost","root","0123456","clinic");
-//Check connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-?>
-
 <html>
 <head>
     <meta charset="utf-8">
     <title>The Clinic</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/patientbutton.css">
+	<!--<link rel="stylesheet" type="text/css" href="css/patientbutton.css">-->
+	<link rel="stylesheet" type="text/css" href="css/patientsearchbutton.css">
 	
 </head>
 <body>
 
     <div class="container">
-        <h1><a href="index.php">The Clinic</a>
+        <h1><a href="../index.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -27,10 +19,10 @@ if (mysqli_connect_errno()) {
 					</button>
 					
 				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
-					<li><a href="Patient/login.php">Patient</a></li>
+					<li><a href="#">Patient</a></li>
 					<li class="divider"></li>
-					<li><a href="Doctor/login.php">Doctor</a></li>
-					<li><a href="Receptionist/login.php">Receptionist</a></li>
+					<li><a href="#">Doctor</a></li>
+					<li><a href="Receptionist/createpatient.php">Receptionist</a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -43,20 +35,50 @@ if (mysqli_connect_errno()) {
                         <li><a href="#">View Appointments</a></li>
 						<li><a href="#">Set Appointment</a></li>
                         <li><a href="#">Create New Patient</a></li>
-                        <li><a href="#">Patient Search</a></li>
+                        <li class="active"><a href="#">Patient Search</a></li>
 
                     </ul>
                 </div>
             </div>
         </div>
+
+
     </div>
+	
+	<html>
+<body>
 
-<h1 align="center"> Welcome to our Clinic!</h1>
-<p align="center"><img border="1" src="img/MainPic.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
+<br>
 
+<form form style="text-align:center" action="insert.php" method="post">
+  <fieldset>
+<legend>Enter Patient Information:</legend>
 
+<a href="#" class="button"/>CareCard #</a>
+<a href="#" class="button"/>Name</a>
+<a href="#" class="button"/>Gender</a>
+<a href="#" class="button"/>Address</a>
+<a href="#" class="button"/>Phone #</a>
+<a href="#" class="button"/>Date Of Birth</a>
+<a href="#" class="button"/>Checkup Date</a>
+
+<input type="submit">
+  </fieldset>
+</form>
+
+<hr>
 </body>
+</html>
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
-</html>
+	
+
+</div>
+
+
+	
+	
+	
+	
+</body>

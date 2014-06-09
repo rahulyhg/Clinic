@@ -4,27 +4,27 @@
     <meta charset="utf-8">
     <title>The Clinic</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/patientbutton.css">
-	
+    <link rel="stylesheet" type="text/css" href="css/patientbutton.css">
+    
 </head>
 <body>
 
     <div class="container">
            <h1><a href="../index.php">The Clinic</a>
-		  <div class="pull-right">
-			<div class="btn-group">
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Patient <span class="caret"></span>
-					</button>
-				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
-					<li><a href="#">Patient</a></li>
-					<li class="divider"></li>
-					<li><a href="#">Doctor</a></li>
-					<li><a href="Receptionist/createpatient.php">Receptionist</a></li>
-			  </ul>
-			</div>
-		  </div>
-		  </h1>
+          <div class="pull-right">
+            <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Patient <span class="caret"></span>
+                    </button>
+                <ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
+                    <li><a href="#">Patient</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Doctor</a></li>
+                    <li><a href="Receptionist/createpatient.php">Receptionist</a></li>
+              </ul>
+            </div>
+          </div>
+          </h1>
 
         <div class="navbar">
             <div class="navbar-inner">
