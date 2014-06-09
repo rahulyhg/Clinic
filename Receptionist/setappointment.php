@@ -33,8 +33,8 @@
                     <ul class="nav">
                         <li><a href="receptionistmain.php">View My Information</a></li>
                         <li><a href="viewappointments.php">View Appointments</a></li>
-						<li><a href="setappointment.php">Set Appointment</a></li>
-                        <li class="active"><a href="#">Create New Patient</a></li>
+						<li class="active"><a href="setappointment.php">Set Appointment</a></li>
+                        <li><a href="createpatient.php">Create New Patient</a></li>
                         <li><a href="patientsearch.php">Patient Search</a></li>
 
                     </ul>
@@ -52,13 +52,13 @@
 
 <form form style="text-align:center" action="insert.php" method="post">
   <fieldset>
-<legend>Enter Patient Information:</legend>
-CareCard #: <input type="text" name="cc"><br><br>
-First Name: <input type="text" name="firstname"><br>
-Last Name: <input type="text" name="lastname"><br>
-Date Of Birth: <input type="text" name="dob"><br>
-Address: <input type="text" name="addr"><br>
-Phone #: <input type="text" name="phn"><br><br>
+<legend>Enter Appointment Information:</legend>
+
+AppointmentID: <input type="text" name="appointmentID"><br>
+StaffID: <input type="text" name="staffID"><br>
+Date: <input type="text" name="date"><br>
+Time: <input type="text" name="time"><br>
+Address: <input type="text" name="addr"><br><br>
 
 <input type="submit">
   </fieldset>

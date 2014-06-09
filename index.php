@@ -30,7 +30,7 @@ if (mysqli_connect_errno()) {
 					<li><a href="Patient/login.php">Patient</a></li>
 					<li class="divider"></li>
 					<li><a href="Doctor/login.php">Doctor</a></li>
-					<li><a href="Receptionist/login.php">Receptionist</a></li>
+					<li><a href="Receptionist/rlogin.php">Receptionist</a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -40,11 +40,8 @@ if (mysqli_connect_errno()) {
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="#">View Appointments</a></li>
-						<li><a href="#">Set Appointment</a></li>
-                        <li><a href="#">Create New Patient</a></li>
-                        <li><a href="#">Patient Search</a></li>
-
+                        <li class="active"><a href="#">About Us</a></li>
+						<li><a href="#">Contact Information</a></li>
                     </ul>
                 </div>
             </div>

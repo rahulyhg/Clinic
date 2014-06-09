@@ -4,7 +4,7 @@ $host="localhost"; // Host name
 $username="root"; // Mysql username 
 $password="0123456"; // Mysql password 
 $db_name="clinic"; // Database name 
-$tbl_name="patient"; // Table name 
+$tbl_name="staff"; // Table name 
 
 // Connect to server and select databse.
 //mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
@@ -25,37 +25,36 @@ else
 
 session_start();
 // username and password sent from form 
-$mycarecard=intval($_POST['carecard']); 
-$mylname=$_POST['lname']; 
-echo $mycarecard;
-echo $mylname;
+$mystaffID=intval($_POST['staffID']); 
+
+echo $mystaffID;
 
 // To protect MySQL injection (more detail about MySQL injection)
-//$mycarecard = stripslashes($mycarecard);
+//$mystaffID = stripslashes($mystaffID);
 //$mylname = stripslashes($mylname);
-//$mycarecard = mysql_real_escape_string($mycarecard);
+//$mystaffID = mysql_real_escape_string($mystaffID);
 //$mylname = mysql_real_escape_string($mylname);
-//$mycarecardint = (int) $mycarecard;
-//$sql="SELECT * FROM patient WHERE CareCard=$mycarecard AND name='$mylname'";
+//$mystaffIDint = (int) $mystaffID;
+//$sql="SELECT * FROM patient WHERE staffID=$mystaffID AND name='$mylname'";
 //$sql="select * from patient";
-$sql="SELECT * FROM patient WHERE CareCard=$mycarecard AND name='$mylname'";
+$sql="SELECT * FROM staff WHERE staffID=$mystaffID";
 
 $result=mysqli_query($con,$sql);
 
 $row = mysqli_fetch_array($result, MYSQL_BOTH);
 
 $count=mysqli_num_rows($result);
-// If result matched $mycarecard and $mylname, table row must be 1 row
+// If result matched $mystaffID and $mylname, table row must be 1 row
 if($count == 0){
-echo "Wrong CareCard# or Surname";
+echo "Wrong staffID#";
 
 }
 else {
-	// Register $mycarecard, $mylname and redirect to file "login_success.php"
+	// Register $mystaffID, $mylname and redirect to file "login_success.php"
 echo "Successful";
-$_SESSION['mycarecard'] = $mycarecard;
-$_SESSION['mylname'] = $mylname;
-header("location:loginsuccess.php");
+$_SESSION['mystaffID'] = $mystaffID;
+
+header("location:rloginsuccess.php");
 
 
 

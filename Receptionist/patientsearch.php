@@ -32,9 +32,10 @@
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="#">View Appointments</a></li>
-						<li><a href="#">Set Appointment</a></li>
-                        <li><a href="#">Create New Patient</a></li>
+                    	<li><a href="receptionistmain.php">View My Information</a></li>
+                        <li><a href="viewappointments.php">View Appointments</a></li>
+						<li><a href="setappointment.php">Set Appointment</a></li>
+                        <li><a href="createpatient.php">Create New Patient</a></li>
                         <li class="active"><a href="#">Patient Search</a></li>
 
                     </ul>
@@ -52,7 +53,7 @@
 
 <form form style="text-align:center" action="insert.php" method="post">
   <fieldset>
-<legend>Enter Patient Information:</legend>
+<legend>Search By:</legend>
 
 <a href="#" class="button"/>CareCard #</a>
 <a href="#" class="button"/>Name</a>
@@ -62,7 +63,6 @@
 <a href="#" class="button"/>Date Of Birth</a>
 <a href="#" class="button"/>Checkup Date</a>
 
-<input type="submit">
   </fieldset>
 </form>
 

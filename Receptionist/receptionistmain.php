@@ -13,35 +13,38 @@ if (mysqli_connect_errno()) {
     <meta charset="utf-8">
     <title>The Clinic</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/patientbutton.css">
-	
+  <link rel="stylesheet" type="text/css" href="css/patientbutton.css">
+  
 </head>
 <body>
 
     <div class="container">
-        <h1><a href="index.php">The Clinic</a>
-		  <div class="pull-right">
-			<div class="btn-group">
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Viewing As: <span class="caret"></span>
-					</button>
-					
-				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
-					<li><a href="Patient/login.php">Patient</a></li>
-					<li class="divider"></li>
-					<li><a href="Doctor/login.php">Doctor</a></li>
-					<li><a href="Receptionist/login.php">Receptionist</a></li>
-			  </ul>
-			</div>
-		  </div>
-		  </h1>
+        <h1><a href="receptionistmain.php">The Clinic</a>
+      <div class="pull-right">
+      <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Viewing As: <span class="caret"></span>
+          </button>
+          
+        <ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
+          <li><a href="Patient/login.php">Patient</a></li>
+          <li class="divider"></li>
+          <li><a href="Doctor/login.php">Doctor</a></li>
+          <li><a href="Receptionist/rlogin.php">Receptionist</a></li>
+        </ul>
+      </div>
+      </div>
+      </h1>
 
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
                         <li class="active"><a href="#">View My Information</a></li>
-                        <li><a href="#">View My Appointments</a></li>	
+                        <li><a href="viewappointments.php">View Appointments</a></li> 
+                        <li><a href="setappointment.php">Set Appointment</a></li>
+                        <li><a href="createpatient.php">Create New Patient</a></li>
+                        <li><a href="patientsearch.php">Patient Search</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,7 +54,7 @@ if (mysqli_connect_errno()) {
 <h1 align="center"> Welcome to our Clinic!</h1>
 <!--<p align="center"><img border="1" src="img/MainPic.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
 -->
-<h3 align="center"> You are currently viewing as a patient. <br> What would you like to do?</h3>
+<h3 align="center"> You are currently viewing as a receptionist. <br> What would you like to do?</h3>
 
 
 
@@ -80,15 +83,15 @@ else
 
 session_start();
 // username and password sent from form 
-$mycarecard = $_SESSION['mycarecard'];
-//echo $mycarecard; 
-$mylname = $_SESSION['mylname'];
+$mystaffID = $_SESSION['mystaffID'];
+//echo $mystaffID; 
+//$mylname = $_SESSION['mylname'];
 //echo $mylname;
 
-//$addr="SELECT phone FROM patient WHERE CareCard=$mycarecard AND name='$mylname'";
+//$addr="SELECT phone FROM staff WHERE CareCard=$mystaffID AND name='$mylname'";
 
 
-$all="SELECT * FROM patient WHERE CareCard=$mycarecard AND name='$mylname'";
+$all="SELECT * FROM staff WHERE staffID=$mystaffID";
 
 $result=mysqli_query($con,$all);
 
@@ -102,33 +105,22 @@ $count=mysqli_num_rows($result);
 //hello
 
 
-$patients = mysqli_query($con,"SELECT * FROM Patient");
+$patients = mysqli_query($con,"SELECT * FROM staff");
 
-echo "<table border='5'>
+echo "<center><table border='5'>
 <tr>
-<th>CareCard</th>
-<th>Name</th>
-<th>Gender</th>
-<th>Address</th>
-<th>Phone</th>
-<th>DOB</th>
-<th>Checkup Date</th>
+<th>StaffID</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result)){
    echo "<tr>";
-  echo '<td align="center">' . $row['CareCard'] . "</td>";
-  echo '<td align="center">' . $row['name'] . "</td>";
-  echo '<td align="center">'. $row['gender'] . "</td>";
-  echo '<td align="center">' . $row['addr'] . "</td>";
-  echo '<td align="center">'. $row['phone'] . "</td>";
-  echo '<td align="center">' . $row['DOB'] . "</td>";
-  echo '<td align="center">' . $row['checkupDate'] . "</td>";
+  echo '<td align="center">' . $row['staffID'] . "</td>";
+
   echo "</tr>";
 
 
 
-echo "</table><p></p>";
+echo "</table><p></p></center>";
 
 }
 
@@ -138,13 +130,13 @@ echo "</table><p></p>";
 
 
 
-// If result matched $mycarecard and $mylname, table row must be 1 row
+// If result matched $mystaffID and $mylname, table row must be 1 row
 if($count == 0){
-echo "Wrong CareCard# or Surname";
+echo "Wrong staffID";
 
 }
 else {
-    // Register $mycarecard, $mylname and redirect to file "login_success.php"
+    // Register $mystaffID, $mylname and redirect to file "login_success.php"
 
 
 

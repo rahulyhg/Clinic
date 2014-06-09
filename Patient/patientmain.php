@@ -104,7 +104,7 @@ $count=mysqli_num_rows($result);
 
 $patients = mysqli_query($con,"SELECT * FROM Patient");
 
-echo "<table border='5'>
+echo "<center><table border='5'>
 <tr>
 <th>CareCard</th>
 <th>Name</th>
@@ -128,7 +128,7 @@ while($row = mysqli_fetch_array($result)){
 
 
 
-echo "</table><p></p>";
+echo "</table><p></p></center>";
 
 }
 
