@@ -4,47 +4,8 @@
     <meta charset="utf-8">
     <title>The Clinic</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<!--<link rel="stylesheet" type="text/css" href="css/patientbutton.css">-->
-	<link rel="stylesheet" type="text/css" href="css/patientsearchbutton.css">
+	  <link rel="stylesheet" type="text/css" href="css/patientsearchbutton.css">
 	
-
-
-
-
-<!---------------------------------------------------------------->
-
-
-
-<script>
-function showUser(str) {
-  if (str=="") {
-    document.getElementById("txtHint").innerHTML="";
-    return;
-  } 
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else { // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
-    }
-  }
-  xmlhttp.open("GET","getall.php?q="+str,true);
-  xmlhttp.send();
-}
-</script>
-
-
-
-
-
-<!---------------------------------------------------------------->
-
-
-
 
 </head>
 <body>
@@ -92,10 +53,10 @@ function showUser(str) {
 
 <form form style="text-align:center" action="insert.php" method="post">
   <fieldset>
-<legend>Search By:</legend>
+<legend>I want to view a list of all Patient's:</legend>
 
 
-<!---------------------------------------------------------------->
+<!---------------------------------------------------------------
 
 <form>
 <select name="queries" onchange="showUser(this.value)">
@@ -114,19 +75,17 @@ function showUser(str) {
 <div id="txtHint"><b></b></div>
 
 
-<!---------------------------------------------------------------->
+-------------------------------------------------------------->
 
 
-<!--
-<a href="#" class="button"/>Show All</a>
-<a href="#" class="button"/>CareCard #</a>
-<a href="#" class="button"/>Name</a>
-<a href="#" class="button"/>Gender</a>
-<a href="#" class="button"/>Address</a>
-<a href="#" class="button"/>Phone #</a>
-<a href="#" class="button"/>Date Of Birth</a>
-<a href="#" class="button"/>Checkup Date</a>
--->
+<a href="searchq/allinfo.php" class="button"/>Information</a>
+<a href="searchq/allcc.php" class="button"/>CareCard#'s</a>
+<a href="searchq/allname.php" class="button"/>Names</a>
+<a href="searchq/allgender.php" class="button"/>Genders</a>
+<a href="searchq/alladdr.php" class="button"/>Addresses</a>
+<a href="searchq/allphn.php" class="button"/>Phone#'s</a>
+<a href="searchq/alldob.php" class="button"/>Date Of Birth</a>
+<a href="searchq/allcheckup.php" class="button"/>Checkup Dates</a>
 
   </fieldset>
 </form>

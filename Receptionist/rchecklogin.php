@@ -2,7 +2,7 @@
 
 $host="localhost"; // Host name 
 $username="root"; // Mysql username 
-$password="12345"; // Mysql password 
+$password="0123456"; // Mysql password 
 $db_name="clinic"; // Database name 
 $tbl_name="staff"; // Table name 
 
@@ -12,7 +12,7 @@ $tbl_name="staff"; // Table name
 
 
 //Create connection
-$con=mysqli_connect("localhost","root","12345","clinic");
+$con=mysqli_connect("localhost","root","0123456","clinic");
 //Check connection
 if (!$con) {
 	die('Could not connect' . mysqli_error());
