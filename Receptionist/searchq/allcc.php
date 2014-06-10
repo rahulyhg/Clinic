@@ -13,15 +13,10 @@
       <div class="pull-right">
       <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          Viewing As: <span class="caret"></span>
+          Receptionist: <span class="caret"></span>
           </button>
           
-        <ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
-          <li><a href="Patient/login.php">Patient</a></li>
-          <li class="divider"></li>
-          <li><a href="Doctor/login.php">Doctor</a></li>
-          <li><a href="Receptionist/rlogin.php">Receptionist</a></li>
-        </ul>
+       
       </div>
       </div>
       </h1>
@@ -29,12 +24,13 @@
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
-                    <ul class="nav">
-                        <li><a href="#">View My Information</a></li>
-                        <li><a href="viewappointments.php">View Appointments</a></li> 
-                        <li><a href="setappointment.php">Set Appointment</a></li>
-                        <li><a href="createpatient.php">Create New Patient</a></li>
+                   <ul class="nav">
+                        <li><a href="../receptionistmain.php">View My Information</a></li>
+                        <li><a href="../viewappointments.php">View Appointments</a></li> 
+                        <li><a href="../setappointment.php">Set Appointment</a></li>
+                        <li><a href="../createpatient.php">Create New Patient</a></li>
                         <li class="active"><a href="patientsearch.php">Patient Search</a></li>
+                        <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
             </div>

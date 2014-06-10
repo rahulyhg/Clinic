@@ -9,18 +9,18 @@
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
            <h1><a href="../index.php">The Clinic</a>
           <div class="pull-right">
             <div class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Patient <span class="caret"></span>
+                    Receptionist <span class="caret"></span>
                     </button>
                 <ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
-                    <li><a href="#">Patient</a></li>
+                    <li><a href="../Patient/login.php">Patient</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Doctor</a></li>
-                    <li><a href="Receptionist/createpatient.php">Receptionist</a></li>
+                    <li><a href="../Doctor/dlogin.php">Doctor</a></li>
+                    <li class="active"><a href="#">Receptionist</a></li>
               </ul>
             </div>
           </div>
@@ -36,6 +36,7 @@
             </div>
         </div>
     </div>
+
 
 
 

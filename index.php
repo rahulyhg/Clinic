@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <?php
+
+
+// Put this code in first line of web page.  
+session_start();
+session_destroy();
+
 //Create connection
 $con=mysqli_connect("localhost","root","0123456","clinic");
 //Check connection
@@ -29,7 +35,7 @@ if (mysqli_connect_errno()) {
 				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
 					<li><a href="Patient/login.php">Patient</a></li>
 					<li class="divider"></li>
-					<li><a href="Doctor/login.php">Doctor</a></li>
+					<li><a href="Doctor/dlogin.php">Doctor</a></li>
 					<li><a href="Receptionist/rlogin.php">Receptionist</a></li>
 			  </ul>
 			</div>

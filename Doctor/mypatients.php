@@ -19,19 +19,14 @@ if (mysqli_connect_errno()) {
 <body>
 
     <div class="container">
-        <h1><a href="index.php">The Clinic</a>
+        <h1><a href="#">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Viewing As: <span class="caret"></span>
+					Doctor: <span class="caret"></span>
 					</button>
 					
-				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
-					<li><a href="Patient/login.php">Patient</a></li>
-					<li class="divider"></li>
-					<li><a href="Doctor/login.php">Doctor</a></li>
-					<li><a href="Receptionist/login.php">Receptionist</a></li>
-			  </ul>
+				
 			</div>
 		  </div>
 		  </h1>
@@ -44,6 +39,7 @@ if (mysqli_connect_errno()) {
                         <li class="active"><a href="mypatients.php">View My Patients</a></li>	
                         <li><a href="myappointments.php">View My Appointments</a></li>
                         <li><a href="createprescription.php">Create Prescription</a></li> 
+                        <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
             </div>

@@ -23,15 +23,10 @@ if (mysqli_connect_errno()) {
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Viewing As: <span class="caret"></span>
+					Patient: <span class="caret"></span>
 					</button>
 					
-				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
-					<li><a href="Patient/login.php">Patient</a></li>
-					<li class="divider"></li>
-					<li><a href="Doctor/login.php">Doctor</a></li>
-					<li><a href="Receptionist/login.php">Receptionist</a></li>
-			  </ul>
+				
 			</div>
 		  </div>
 		  </h1>
@@ -41,7 +36,8 @@ if (mysqli_connect_errno()) {
                 <div class="container">
                     <ul class="nav">
                         <li class="active"><a href="#">View My Information</a></li>
-                        <li><a href="#">View My Appointments</a></li>	
+                        <li><a href="pappointments.php">View My Appointments</a></li>	
+                        <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
