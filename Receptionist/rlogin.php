@@ -30,7 +30,7 @@
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="#">View My Information</a></li>
+                       <!-- <li><a href="#">View My Information</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -46,7 +46,7 @@
 
 <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
 <tr>
-<form name="form1" method="post" action="checklogin.php">
+<form name="form1" method="post" action="rchecklogin.php">
 <td>
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
 <tr>
@@ -54,15 +54,11 @@
 <br>
 </tr>
 <tr>
-<td width="98">CareCard#</td>
+<td width="98">StaffID</td>
 <td width="6">:</td>
-<td width="294"><input name="carecard" type="text" id="carecard"></td>
+<td width="294"><input name="staffID" type="text" id="staffID"></td>
 </tr>
-<tr>
-<td>Surname</td>
-<td>:</td>
-<td><input name="lname" type="text" id="lname"></td>
-</tr>
+
 <tr>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
