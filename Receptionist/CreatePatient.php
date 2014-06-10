@@ -50,15 +50,17 @@
 
 <br>
 
-<form form style="text-align:center" action="insert.php" method="post">
+<form form style="text-align:center" action="insertnewpatient.php" method="post">
   <fieldset>
 <legend>Enter Patient Information:</legend>
-CareCard #: <input type="text" name="cc"><br><br>
-First Name: <input type="text" name="firstname"><br>
-Last Name: <input type="text" name="lastname"><br>
-Date Of Birth: <input type="text" name="dob"><br>
+CareCard #: <input type="text" name="carecard"><br><br>
+Name: <input type="text" name="name"> <br>*Initial of first name and full surname i.e. A. Jolie<br><br>
+Gender: <input type="text" name="gender"><br>
 Address: <input type="text" name="addr"><br>
-Phone #: <input type="text" name="phn"><br><br>
+Phone #: <input type="text" name="phn"><br>
+Date Of Birth: <input type="text" name="dob"><br>
+Checkup Date: <input type="text" name="checkup"><br>
+
 
 <input type="submit">
   </fieldset>

@@ -7,6 +7,45 @@
 	<!--<link rel="stylesheet" type="text/css" href="css/patientbutton.css">-->
 	<link rel="stylesheet" type="text/css" href="css/patientsearchbutton.css">
 	
+
+
+
+
+<!---------------------------------------------------------------->
+
+
+
+<script>
+function showUser(str) {
+  if (str=="") {
+    document.getElementById("txtHint").innerHTML="";
+    return;
+  } 
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+  xmlhttp.open("GET","getall.php?q="+str,true);
+  xmlhttp.send();
+}
+</script>
+
+
+
+
+
+<!---------------------------------------------------------------->
+
+
+
+
 </head>
 <body>
 
@@ -55,6 +94,31 @@
   <fieldset>
 <legend>Search By:</legend>
 
+
+<!---------------------------------------------------------------->
+
+<form>
+<select name="queries" onchange="showUser(this.value)">
+<option value="">I want to view a list of:</option>
+<option value="1">All Patient's Information</option>
+<option value="2">All Patient's CareCard#'s</option>
+<option value="3">All Patient's Names</option>
+<option value="4">All Patient's Genders</option>
+<option value="5">All Patient's Addresses</option>
+<option value="6">All Patient's Phone#'s</option>
+<option value="7">All Patient's Date Of Births</option>
+<option value="8">All Patient's Checkup Dates</option>
+</select>
+</form>
+<br>
+<div id="txtHint"><b></b></div>
+
+
+<!---------------------------------------------------------------->
+
+
+<!--
+<a href="#" class="button"/>Show All</a>
 <a href="#" class="button"/>CareCard #</a>
 <a href="#" class="button"/>Name</a>
 <a href="#" class="button"/>Gender</a>
@@ -62,23 +126,17 @@
 <a href="#" class="button"/>Phone #</a>
 <a href="#" class="button"/>Date Of Birth</a>
 <a href="#" class="button"/>Checkup Date</a>
+-->
 
   </fieldset>
 </form>
 
 <hr>
 </body>
-</html>
-
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
-	
-
-</div>
+</html>
 
 
 	
-	
-	
-	
-</body>
+

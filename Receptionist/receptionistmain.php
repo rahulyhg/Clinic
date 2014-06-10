@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 //Create connection
-$con=mysqli_connect("localhost","root","0123456","clinic");
+$con=mysqli_connect("localhost","root","12345","clinic");
 //Check connection
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -70,7 +70,7 @@ if (mysqli_connect_errno()) {
 
 <?php
 
-$con=mysqli_connect("localhost","root","0123456","clinic");
+$con=mysqli_connect("localhost","root","12345","clinic");
 //Check connection
 if (!$con) {
     die('Could not connect' . mysqli_error());
