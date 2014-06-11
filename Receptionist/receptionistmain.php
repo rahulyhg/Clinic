@@ -103,14 +103,25 @@ $count=mysqli_num_rows($result);
 
 $patients = mysqli_query($con,"SELECT * FROM staff");
 
-echo "<center><table border='5'>
+echo "<center><table border='5' style='width:1000px'>
 <tr>
 <th>StaffID</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Address</th>
+<th>Phone</th>
+
 </tr>";
 
 while($row = mysqli_fetch_array($result)){
    echo "<tr>";
   echo '<td align="center">' . $row['staffID'] . "</td>";
+
+  echo '<td align="center">' . $row['name'] . "</td>";
+  echo '<td align="center">'. $row['gender'] . "</td>";
+  echo '<td align="center">' . $row['addr'] . "</td>";
+  echo '<td align="center">'. $row['phone'] . "</td>";
+
 
   echo "</tr>";
 

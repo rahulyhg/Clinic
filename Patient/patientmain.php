@@ -100,7 +100,7 @@ $count=mysqli_num_rows($result);
 
 $patients = mysqli_query($con,"SELECT * FROM Patient");
 
-echo "<center><table border='5'>
+echo "<center><table border='5' style='width:1000px'>
 <tr>
 <th>CareCard</th>
 <th>Name</th>

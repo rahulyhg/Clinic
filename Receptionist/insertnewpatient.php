@@ -25,3 +25,8 @@ echo "1 record added";
 
 mysqli_close($con);
 ?>
+
+
+<html>
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+</html>
