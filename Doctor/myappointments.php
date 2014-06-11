@@ -73,34 +73,51 @@ if (!$con) {
 }
 else
 {
-   echo "sucessful";  
+ //  echo "sucessful";  
 }
 
 session_start();
 // username and password sent from form 
 $mystaffID = $_SESSION['mystaffID'];
-//echo $mystaffID; 
+echo $mystaffID . "<p>"; 
 $mylicense = $_SESSION['mylicense'];
-//echo $mylicense;
+echo $mylicense;
 
 //$addr="SELECT phone FROM patient WHERE staffID=$mystaffID AND license='$mylicense'";
 
 
-$all="SELECT * FROM doctorssee WHERE staffID=$mystaffID AND license='$mylicense'";
+$all="SELECT d.appointmentID, p.name, p.CareCard, s.date, s.time FROM doctorssee d, patient p, book b, setappointments s 
+WHERE d.staffID='$mystaffID' AND d.staffID=s.staffID" ;
+//<!--AND id.carecard=p.carecard AND d.appointmentID=s.appointmentID-->;
+
 
 $result=mysqli_query($con,$all);
 
 $count=mysqli_num_rows($result);
 
 
+echo "<center><table border='1' style='width:800px'>
+<tr>
+<th>Appointment ID</th>
+<th>Name</th>
+<th>CareCard #</th>
+<th>Date</th>
+<th>Time</th>
 
-//
+</tr>";
 
+while($row = mysqli_fetch_array($result)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['appointmentID'] . "</td>";
+  echo '<td align="center">' . $row['name'] . "</td>";
+  echo '<td align="center">' . $row['CareCard'] . "</td>";
+  echo '<td align="center">' . $row['date'] . "</td>";
+  echo '<td align="center">' . $row['time'] . "</td>";
+  echo "</tr>";
+}
 
-//hello
+echo "</table><p></p><center>";
 
-
-$patients = mysqli_query($con,"SELECT * FROM doctorssee");
 
 /*echo "<center><table border='5'>
 <tr>
@@ -136,7 +153,7 @@ else {
 
 
 
-echo "Successful";
+//echo "Successful";
 }
 
 ?>

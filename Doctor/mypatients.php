@@ -47,49 +47,24 @@ if (mysqli_connect_errno()) {
     </div>
 
 
-
-<table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-<tr>
-<form name="form1" method="post" action="checkmypatients.php">
-<td>
-<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-<tr>
-<legend align="center">Enter Your Crediental:</legend>
-<br>
-</tr>
-<tr>
-<td width="98">StaffID</td>
-<td width="6">:</td>
-<td width="294"><input name="staffID" type="text" id="staffID"></td>
-</tr>
-<tr>
-<td>License#</td>
-<td>:</td>
-<td><input name="license" type="text" id="license"></td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><input type="submit" name="Submit" value="Find"></td>
-</tr>
-</table>
-</td>
-</form>
-</tr>
-</table>
-
-
-
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </html>
 
-
 <?php
-$mycarecard=intval($_POST['staffid']); 
-$mylname=$_POST['lastname']; 
-echo $mycarecard;
-echo $mylname;
+session_start();
+// username and password sent from form 
+$mystaffID = $_SESSION['mystaffID'];
+echo $mystaffID . "<p>"; 
+$mylicense = $_SESSION['mylicense'];
+echo $mylicense;
+
+
+
+
+
+
+
+
+
 ?>
-
-
