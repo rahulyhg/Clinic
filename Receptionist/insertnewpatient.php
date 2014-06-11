@@ -21,7 +21,7 @@ VALUES ('$cc', '$name', '$gender', '$addr', '$phn', '$dob', '$checkup')";
 if (!mysqli_query($con,$sql)) {
   die('Error: ' . mysqli_error($con));
 }
-echo "1 record added";
+echo "A new patient has been added into the database.";
 
 mysqli_close($con);
 ?>

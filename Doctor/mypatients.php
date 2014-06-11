@@ -85,6 +85,11 @@ if (mysqli_connect_errno()) {
 </html>
 
 
-
+<?php
+$mycarecard=intval($_POST['staffid']); 
+$mylname=$_POST['lastname']; 
+echo $mycarecard;
+echo $mylname;
+?>
 
 

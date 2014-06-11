@@ -47,11 +47,7 @@ if (mysqli_connect_errno()) {
         </div>
     </div>
 
-<h1 align="center"> Welcome to our Clinic!</h1>
-<!--<p align="center"><img border="1" src="img/MainPic.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
--->
 <h3 align="center"> You are currently viewing as a receptionist. <br> What would you like to do?</h3>
-
 
 
 </body>
@@ -59,9 +55,6 @@ if (mysqli_connect_errno()) {
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </html>
-
-
-
 
 
 <?php
@@ -74,7 +67,7 @@ if (!$con) {
 }
 else
 {
-   echo "sucessful";  
+   //echo "sucessful";  
 }
 
 session_start();
@@ -94,13 +87,6 @@ $result=mysqli_query($con,$all);
 $count=mysqli_num_rows($result);
 
 
-
-//
-
-
-//hello
-
-
 $patients = mysqli_query($con,"SELECT * FROM staff");
 
 echo "<center><table border='5' style='width:1000px'>
@@ -116,7 +102,6 @@ echo "<center><table border='5' style='width:1000px'>
 while($row = mysqli_fetch_array($result)){
    echo "<tr>";
   echo '<td align="center">' . $row['staffID'] . "</td>";
-
   echo '<td align="center">' . $row['name'] . "</td>";
   echo '<td align="center">'. $row['gender'] . "</td>";
   echo '<td align="center">' . $row['addr'] . "</td>";
@@ -147,7 +132,7 @@ else {
 
 
 
-echo "Successful";
+//echo "Successful";
 }
 
 ?>

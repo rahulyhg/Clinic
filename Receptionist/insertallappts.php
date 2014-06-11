@@ -43,34 +43,67 @@
 	<html>
 <body>
 
-<br>
+<h3 align="center"> Viewing All Appointments:</h3>
 
-<form form style="text-align:center" action="insertallappts.php">
-    <input type="submit" value="View All Appointments">
-</form>
-
-<p align="center"> <br><b> OR </b><br><br> </p>
-
-<form form style="text-align:center" action="searchq/searchapptid.php" method="post">
-  <fieldset>
-Search by AppointmentID: <br><input type="text" name="apptid"><br>
-<input type="submit">
-  </fieldset>
-</form>
-
-<p align="center"> <br><b> OR </b><br><br> </p>
-
-<form form style="text-align:center" action="searchq/searchcc.php" method="post">
-  <fieldset>
-Search by CareCard#: <br><input type="text" name="carecard"><br>
-<input type="submit">
-  </fieldset>
-</form>
-
-<hr>
 </body>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </html>
 
 
+<?php
+$con=mysqli_connect("localhost","root","0123456","clinic");
+// Check connection
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+session_start();
+
+// escape variables for security
+//$apptid = mysqli_real_escape_string($con, $_POST['apptid']);
+
+
+$allappts ="SELECT * FROM setappointments"; 
+
+$result=mysqli_query($con,$allappts);
+
+$count=mysqli_num_rows($result);
+
+echo "<center><table border='5' style='width:800px'>
+<tr>
+<th>AppointmentID</th>
+<th>StaffID</th>
+<th>Date</th>
+<th>Time</th>
+<th>Address</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result)){
+   echo "<tr>";
+  echo '<td align="center">' . $row['appointmentID'] . "</td>";
+  echo '<td align="center">' . $row['staffID'] . "</td>";
+  echo '<td align="center">'. $row['date'] . "</td>";
+  echo '<td align="center">' . $row['time'] . "</td>";
+  echo '<td align="center">'. $row['addr'] . "</td>";
+  echo "</tr>";
+
+}
+echo "</table><p></p></center>";
+
+// If result matched $mycarecard and $mylname, table row must be 1 row
+if($count == 0){
+echo "No appointments made yet.";
+
+}
+else {
+    // Register $mycarecard, $mylname and redirect to file "login_success.php"
+
+//echo "Successful";
+}
+
+?>
+
+<html>
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+</html>

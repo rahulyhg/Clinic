@@ -10,11 +10,11 @@
 <body>
 
     <div class="container">
-        <h1><a href="../index.php">The Clinic</a>
+           <h1><a href="../index.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Doctor <span class="caret"></span>
+					Receptionist <span class="caret"></span>
 					</button>
 				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
 					<li><a href="#">Patient</a></li>
@@ -31,8 +31,8 @@
                 <div class="container">
                     <ul class="nav">
                         <li><a href="#">View Appointments</a></li>
-						<li><a href="#">Add Prescription</a></li>
-                        <li><a href="#">Update Prescription</a></li>
+						<li><a href="#">Set Appointment</a></li>
+                        <li><a href="#">Create New Patient</a></li>
                         <li><a href="#">Patient Search</a></li>
 
                     </ul>
@@ -51,7 +51,7 @@
   <fieldset>
 <legend>Enter Login Credentials:</legend>
 <br>
-Staff ID: <input type="text" name="staffid"><br>
+ Staff ID: <input type="text" name="staffid"><br>
 Surname: <input type="text" name="lastname"><br>
 <input type="submit">
   </fieldset>

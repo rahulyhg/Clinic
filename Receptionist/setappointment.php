@@ -46,7 +46,7 @@
 
 <br>
 
-<form form style="text-align:center" action="insert.php" method="post">
+<form form style="text-align:center" action="insertnewappt.php" method="post">
   <fieldset>
 <legend>Enter Appointment Information:</legend>
 

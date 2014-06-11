@@ -106,10 +106,10 @@ $count=mysqli_num_rows($result);
 
 $patients = mysqli_query($con,"SELECT * FROM doctorssee");
 
-echo "<center><table border='5' style='width:1000px'>
+echo "<center><table border='5' style='width:400px'>
 <tr>
-<th>staffID</th>
-<th>license</th>
+<th>StaffID</th>
+<th>License#</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result)){
