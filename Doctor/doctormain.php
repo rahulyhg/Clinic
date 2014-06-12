@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 <body>
 
     <div class="container">
-        <h1><a href="#">The Clinic</a>
+        <h1><a href="doctormain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -39,6 +39,7 @@ if (mysqli_connect_errno()) {
                         <li><a href="mypatients.php">View My Patients</a></li>	
                         <li><a href="myappointments.php">View My Appointments</a></li>
                         <li><a href="createprescription.php">Create Prescription</a></li> 
+                        <li><a href="searchprescription.php">Search Prescription</a></li> 
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -77,7 +78,7 @@ if (!$con) {
 }
 else
 {
-   echo "sucessful";  
+ //  echo "sucessful";  
 }
 
 session_start();
@@ -140,7 +141,7 @@ else {
 
 
 
-echo "Successful";
+//echo "Successful";
 }
 
 ?>

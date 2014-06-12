@@ -10,7 +10,7 @@
 <body>
 
     <div class="container">
-        <h1><a href="../index.php">The Clinic</a>
+        <h1><a href="receptionistmain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -31,7 +31,7 @@
                         <li><a href="../setappointment.php">Set Appointment</a></li>
                         <li><a href="../createpatient.php">Create New Patient</a></li>
                         <li><a href="../patientsearch.php">Patient Search</a></li>
-                        <li><a href="../index.php">Logout</a></li>
+                        <li><a href="../../index.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,12 +71,13 @@ session_start();
 
 // apptid sent from form 
 $apptid = $_POST['apptid'];
-echo $apptid; 
+//echo $apptid; 
 
 
 echo '<h3 align="center">Viewing Scheduled AppointmentID: ' . $apptid . '</h3>';
 
-$patientsAppts = mysqli_query($con,"SELECT P.CareCard, name, addr, phone, appointmentID FROM Patient P, Book B WHERE P.CareCard=B.CareCard AND appointmentID='$apptid'");
+$patientsAppts = mysqli_query($con,"SELECT P.CareCard, name, addr, phone, appointmentID 
+  FROM Patient P, Book B WHERE P.CareCard=B.CareCard AND appointmentID='$apptid'");
 
 echo "<center><table border='1' style='width:800px'>
 <tr>

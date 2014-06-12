@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 <body>
 
     <div class="container">
-        <h1><a href="#">The Clinic</a>
+        <h1><a href="doctormain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

@@ -10,7 +10,7 @@
 <body>
 
     <div class="container">
-        <h1><a href="../index.php">The Clinic</a>
+        <h1><a href="receptionistmain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -71,7 +71,7 @@ session_start();
 
 // apptid sent from form 
 $cc = $_POST['carecard'];
-echo $cc; 
+//echo $cc; 
 
 
 echo '<h3 align="center">Viewing Scheduled Appointments Under CareCard# : ' . $cc . '</h3>';

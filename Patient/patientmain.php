@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 <body>
 
     <div class="container">
-        <h1><a href="index.php">The Clinic</a>
+        <h1><a href="patientmain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -45,16 +45,8 @@ if (mysqli_connect_errno()) {
     </div>
 
 <!--<h1 align="center"> Welcome to our Clinic!</h1>-->
-<h3 align="center"> You are currently viewing as a patient. <br> What would you like to do?</h3>
-
-
-
-</body>
-
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-</html>
-
+<h3 align="center"> You are currently viewing as a patient. </h3>
+<br>
 
 <?php
 
@@ -75,6 +67,13 @@ $mycarecard = $_SESSION['mycarecard'];
 //echo $mycarecard; 
 $mylname = $_SESSION['mylname'];
 //echo $mylname;
+
+/////////
+
+$_SESSION['carecard']="$mycarecard";
+$_SESSION['lname']="$mylname";
+
+////////
 
 $all="SELECT * FROM patient WHERE CareCard=$mycarecard AND name='$mylname'";
 
@@ -127,3 +126,19 @@ else {
 }
 
 ?>
+
+<br><br>
+<p align="center"><i> See something wrong? Click to update information!</i>
+<form form style="text-align:center" action="updateinfo.php">
+    <input type="submit" value="Update Information">
+</form>
+</p>
+
+
+</body>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</html>
+
+

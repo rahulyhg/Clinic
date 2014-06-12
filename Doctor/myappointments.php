@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 <body>
 
     <div class="container">
-        <h1><a href="#">The Clinic</a>
+        <h1><a href="doctormain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -39,6 +39,7 @@ if (mysqli_connect_errno()) {
                         <li><a href="mypatients.php">View My Patients</a></li>	
                         <li class="active"><a href="myappointments.php">View My Appointments</a></li>
                         <li><a href="createprescription.php">Create Prescription</a></li> 
+                        <li><a href="searchprescription.php">Search Prescription</a></li> 
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -79,21 +80,21 @@ else
 session_start();
 // username and password sent from form 
 $mystaffID = $_SESSION['mystaffID'];
-echo $mystaffID . "<p>"; 
+//echo $mystaffID . "<p>"; 
 $mylicense = $_SESSION['mylicense'];
-echo $mylicense;
+//echo $mylicense;
 
 //$addr="SELECT phone FROM patient WHERE staffID=$mystaffID AND license='$mylicense'";
 
 
-$all="SELECT d.appointmentID, p.name, p.CareCard, s.date, s.time FROM doctorssee d, patient p, book b, setappointments s 
-WHERE d.staffID='$mystaffID' AND d.staffID=s.staffID" ;
+$all= mysqli_query($con,"SELECT d.appointmentID, p.name, p.CareCard, s.date, s.time FROM doctorssee d, patient p, setappointments s 
+WHERE d.staffID='$mystaffID' AND p.carecard=d.carecard AND s.appointmentID=d.appointmentID");
 //<!--AND id.carecard=p.carecard AND d.appointmentID=s.appointmentID-->;
 
 
-$result=mysqli_query($con,$all);
+//$result=mysqli_query($con,$all);
 
-$count=mysqli_num_rows($result);
+$count=mysqli_num_rows($all);
 
 
 echo "<center><table border='1' style='width:800px'>
@@ -106,7 +107,7 @@ echo "<center><table border='1' style='width:800px'>
 
 </tr>";
 
-while($row = mysqli_fetch_array($result)) {
+while($row = mysqli_fetch_array($all)) {
   echo "<tr>";
   echo '<td align="center">' . $row['appointmentID'] . "</td>";
   echo '<td align="center">' . $row['name'] . "</td>";

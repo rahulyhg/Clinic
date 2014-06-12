@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+//Create connection
+$con=mysqli_connect("localhost","root","0123456","clinic");
+//Check connection
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+?>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,11 +19,11 @@
 <body>
 
     <div class="container">
-        <h1><a href="receptionistmain.php">The Clinic</a>
+        <h1><a href="patientmain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Receptionist: <span class="caret"></span>
+					Patient: <span class="caret"></span>
 					</button>
 					
 				
@@ -26,53 +35,49 @@
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="receptionistmain.php">View My Information</a></li>
-                        <li><a href="viewappointments.php">View Appointments</a></li>
-						<li class="active"><a href="setappointment.php">Set Appointment</a></li>
-                        <li><a href="createpatient.php">Create New Patient</a></li>
-                        <li><a href="patientsearch.php">Patient Search</a></li>
+                        <li class="active"><a href="#">View My Information</a></li>
+                        <li><a href="pappointments.php">View My Appointments</a></li>	
                         <li><a href="../index.php">Logout</a></li>
-
                     </ul>
                 </div>
             </div>
         </div>
-
-
     </div>
-	
-	<html>
-<body>
 
-<br>
-
-<form form style="text-align:center" action="insertnewappt.php" method="post">
+<form form style="text-align:center" action="grabupdated.php" method="post">
   <fieldset>
-<legend>Enter Appointment Information:</legend>
+<legend>Enter your new information:</legend>
 
-AppointmentID: <input type="text" name="appointmentID"><br>
-StaffID: <input type="text" name="staffID"><br>
-Date: <input type="text" name="date"><br>
-Time: <input type="text" name="time"><br>
-Address: <input type="text" name="addr"><br><br>
+
+Address: <input type="text" name="addr" required><br>
+Phone #: <input type="text" name="phn" required><br>
 
 <input type="submit">
   </fieldset>
 </form>
 
-<hr>
+<br>
+
+
+<?php
+session_start();
+$carecard= $_SESSION['carecard'];
+echo $carecard;
+$name= $_SESSION['lname'];
+
+
+
+$_SESSION['carecard']="$mycarecard";
+$_SESSION['lname']="$mylname";
+
+?>
+
+
+
 </body>
-</html>
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
-	
+    <script src="non-empty.js"></script>  
+</html>
 
-</div>
-
-
-	
-	
-	
-	
-</body>

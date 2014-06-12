@@ -27,7 +27,6 @@ if (mysqli_connect_errno()) {
 					</button>
 					
 				
-			  </ul>
 			</div>
 		  </div>
 		  </h1>
@@ -39,8 +38,8 @@ if (mysqli_connect_errno()) {
                         <li><a href="doctormain.php">View My Information</a></li>
                         <li><a href="mypatients.php">View My Patients</a></li>	
                         <li><a href="myappointments.php">View My Appointments</a></li>
-                        <li class="active"><a href="createprescription.php">Create Prescription</a></li> 
-                        <li><a href="searchprescription.php">Search Prescription</a></li> 
+                        <li><a href="createprescription.php">Create Prescription</a></li> 
+                        <li class="active"><a href="searchprescription.php">Search Prescription</a></li> 
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -48,34 +47,11 @@ if (mysqli_connect_errno()) {
         </div>
     </div>
 
-
-
-<form form style="text-align:center" action="insertprescription.php" method="post">
-  <fieldset>
-<legend>Enter Prescription Information:</legend>
-Prescription: <input type="text" name="prescriptionid"><br>
-StaffID: <input type="text" name="staffid"><br>
-License: <input type="text" name="license"><br>
-Medicine Name: <input type="text" name="med"><br>
-Dosage: <input type="text" name="dosage"><br>
-Expiry Date: <input type="text" name="exp"><br>
-
-
-
-<input type="submit">
-  </fieldset>
-</form>
-
-
-
 </body>
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </html>
-
-
-
 
 
 <?php
@@ -88,70 +64,59 @@ if (!$con) {
 }
 else
 {
-   echo "sucessful";  
+ //  echo "sucessful";  
 }
 
 session_start();
 // username and password sent from form 
-$mystaffID = $_SESSION['mystaffID'];
-//echo $mystaffID; 
-$mylicense = $_SESSION['mylicense'];
-//echo $mylicense;
+$carecard = $_POST['carecard'];
+//echo $carecard . "<p>"; 
+$name = $_POST['name'];
+//echo $name;
+
 
 //$addr="SELECT phone FROM patient WHERE staffID=$mystaffID AND license='$mylicense'";
 
 
-$all="SELECT * FROM doctorssee WHERE staffID=$mystaffID AND license='$mylicense'";
+echo "<h2><center>Patients, Medicines and Pharmacy</h2>";
 
-$result=mysqli_query($con,$all);
+$patientsMedPhar = mysqli_query($con,"SELECT P.CareCard, P.name, M.prescriptionID, 
+  M.name, dosage, expiryDate, Ph.pname, Ph.addr, Ph.phone
+  FROM Patient P, PrescribedMedicines M, Pharmacy Ph, Pickup Pi, doctorssee d
+  WHERE '$carecard'=P.CareCard AND '$name'=P.name AND d.CareCard=P.CareCard 
+  AND Ph.addr=Pi.addr AND Ph.pname=Pi.pname AND Pi.prescriptionID=M.prescriptionID");
 
-$count=mysqli_num_rows($result);
+//$count=mysqli_num_rows($patientsMedPhar);
 
-
-
-//
-
-
-//hello
-
-
-$patients = mysqli_query($con,"SELECT * FROM doctorssee");
-
-/*echo "<center><table border='5'>
+echo "<center><table border='1' style='width:800px'>
 <tr>
-<th>staffID</th>
-<th>license</th>
+<th>CareCard #</th>
+<th>Patient</th>
+<th>Prescription ID</th>
+<th>Medicine</th>
+<th>Dosage</th>
+<th>Expiry Date</th>
+<th>Pharmacy</th>
+<th>Address</th>
+<th>Phone</th>
+
 </tr>";
 
-while($row = mysqli_fetch_array($result)){
-   echo "<tr>";
-  echo '<td align="center">' . $row['staffID'] . "</td>";
-  echo '<td align="center">' . $row['license'] . "</td>";
+while($row = mysqli_fetch_array($patientsMedPhar)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['CareCard'] . "</td>";
+  echo '<td align="center">' . $row['name'] . "</td>";
+  echo '<td align="center">' . $row['prescriptionID'] . "</td>";
+  echo '<td align="center">'. $row['name'] . "</td>";
+  echo '<td align="center">' . $row['dosage'] . "</td>";
+  echo '<td align="center">' . $row['expiryDate'] . "</td>";
+  echo '<td align="center">' . $row['pname'] . "</td>";
+  echo '<td align="center">' . $row['addr'] . "</td>";
+  echo '<td align="center">' . $row['phone'] . "</td>";
   echo "</tr>";
-
-
-
-echo "</table><p></p></center>";
-
 }
-*/
 
-//hello
+echo "</table><p></p>";
 
-
-
-
-// If result matched $mystaffID and $mylicense, table row must be 1 row
-if($count == 0){
-echo "Wrong staffID# or License";
-
-}
-else {
-    // Register $mystaffID, $mylicense and redirect to file "login_success.php"
-
-
-
-echo "Successful";
-}
 
 ?>

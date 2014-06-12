@@ -10,7 +10,7 @@
 <body>
 
     <div class="container">
-        <h1><a href="../index.php">The Clinic</a>
+        <h1><a href="patientmain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -49,8 +49,101 @@
     <script src="js/bootstrap.js"></script>
 </html>
 
+
+
+
+
+
+
+
+
 <?php
 
+$con=mysqli_connect("localhost","root","0123456","clinic");
+//Check connection
+if (!$con) {
+    die('Could not connect' . mysqli_error());
+   // echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+else
+{
+ //  echo "sucessful";  
+}
+
+session_start();
+// username and password sent from form 
+$mycarecard = $_SESSION['mycarecard'];
+echo $mycarecard; 
+$mylname = $_SESSION['mylname'];
+echo $mylname;
+
+
+//$addr="SELECT phone FROM patient WHERE staffID=$mystaffID AND license='$mylicense'";
+
+
+
+
+
+
+
+
+
+
+
+echo "<h2><center>Viewing Scheduled Appointments Under CareCard# : " . $mylname . "</center></h2>";
+
+$patientsAppts = mysqli_query($con,"SELECT p.name, s.addr, s.appointmentID, s.time, s.date 
+FROM Patient P, Book B, setappointments s WHERE P.CareCard=B.CareCard AND '$mycarecard'=P.CareCard");
+
+//$patientsAppts = mysqli_query($con,"SELECT st.name, s.addr, s.appointmentID, s.time, s.date 
+  //FROM Patient P, Book B, setappointments s, doctorssee d, staff st
+  //WHERE P.CareCard=B.CareCard AND '$mycarecard'=P.CareCard AND d.appointmentID=s.appointmentID 
+  //ORDER BY s.date");
+
+echo "<center><table border='1' style='width:800px'>
+<tr>
+<th>Patient Name</th>
+
+<th>Clinic's Address</th>
+<th>Appointment ID</th>
+<th>Appointment Time</th>
+<th>Appointment Date</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($patientsAppts)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['name'] . "</td>";
+  echo '<td align="center">' . $row['addr'] . "</td>";
+  echo '<td align="center">' . $row['appointmentID'] . "</td>";
+  echo '<td align="center">' . $row['time'] . "</td>";
+  echo '<td align="center">' . $row['date'] . "</td>";
+  echo "</tr>";
+}
+
+echo "</table><p></p>";
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+<?php
+
+/*
 $con=mysqli_connect("localhost","root","0123456","clinic");
 //Check connection
 if (!$con) {
@@ -73,7 +166,7 @@ echo $mylname;
 
 echo '<h3 align="center">Viewing Scheduled Appointments Under CareCard# : ' . $cc . '</h3>';
 
-$allpappts = mysqli_query($con,"SELECT *  FROM book b WHERE CareCard='$cc'");
+$allpappts = mysqli_query($con,"SELECT *  FROM book b WHERE CareCard='$mycarecard'");
 
 echo "<center><table border='1' style='width:800px'>
 <tr>
@@ -92,5 +185,5 @@ while($row = mysqli_fetch_array($allpappts)) {
 echo "</table><p></p><center>";
 
 
-
+*/
 ?>

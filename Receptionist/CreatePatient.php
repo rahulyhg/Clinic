@@ -10,7 +10,7 @@
 <body>
 
     <div class="container">
-        <h1><a href="../index.php">The Clinic</a>
+        <h1><a href="receptionistmain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -50,7 +50,7 @@
   <fieldset>
 <legend>Enter Patient Information:</legend>
 CareCard #: <input type="text" name="carecard"><br><br>
-Name: <input type="text" name="name"> <br>*Initial of first name and full surname i.e. A. Jolie<br><br>
+Name: <input type="text" name="name"> <br><i>*Initial of first name and full surname i.e. A. Jolie</i><br><br>
 Gender: <input type="text" name="gender"><br>
 Address: <input type="text" name="addr"><br>
 Phone #: <input type="text" name="phn"><br>

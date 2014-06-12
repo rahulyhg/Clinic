@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+//Create connection
+$con=mysqli_connect("localhost","root","0123456","clinic");
+//Check connection
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+?>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,11 +19,11 @@
 <body>
 
     <div class="container">
-        <h1><a href="receptionistmain.php">The Clinic</a>
+        <h1><a href="doctormain.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Receptionist: <span class="caret"></span>
+					Doctor: <span class="caret"></span>
 					</button>
 					
 				
@@ -26,53 +35,43 @@
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="receptionistmain.php">View My Information</a></li>
-                        <li><a href="viewappointments.php">View Appointments</a></li>
-						<li class="active"><a href="setappointment.php">Set Appointment</a></li>
-                        <li><a href="createpatient.php">Create New Patient</a></li>
-                        <li><a href="patientsearch.php">Patient Search</a></li>
+                        <li><a href="doctormain.php">View My Information</a></li>
+                        <li><a href="mypatients.php">View My Patients</a></li>	
+                        <li><a href="myappointments.php">View My Appointments</a></li>
+                        <li><a href="createprescription.php">Create Prescription</a></li> 
+                        <li class="active"><a href="searchprescription.php">Search Prescription</a></li> 
                         <li><a href="../index.php">Logout</a></li>
-
                     </ul>
                 </div>
             </div>
         </div>
-
-
     </div>
-	
-	<html>
-<body>
+
 
 <br>
 
-<form form style="text-align:center" action="insertnewappt.php" method="post">
+<form form style="text-align:center" action="getprescription.php" method="post">
   <fieldset>
-<legend>Enter Appointment Information:</legend>
+<legend>Enter Patient's Information:</legend>
 
-AppointmentID: <input type="text" name="appointmentID"><br>
-StaffID: <input type="text" name="staffID"><br>
-Date: <input type="text" name="date"><br>
-Time: <input type="text" name="time"><br>
-Address: <input type="text" name="addr"><br><br>
+CareCard#: <input type="text" name="carecard"><br>
+Name: <input type="text" name="name"><br>
+
 
 <input type="submit">
   </fieldset>
 </form>
 
 <hr>
+
+
 </body>
-</html>
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
-	
-
-</div>
+</html>
 
 
-	
-	
-	
-	
-</body>
+
+
+
