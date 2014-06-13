@@ -29,8 +29,10 @@
                         <li><a href="receptionistmain.php">View My Information</a></li>
                         <li class="active"><a href="viewappointments.php">View Appointments</a></li> 
                         <li><a href="setappointment.php">Set Appointment</a></li>
+                          <li><a href="deleteappointment.php">Delete Appointment</a></li>
                         <li><a href="createpatient.php">Create New Patient</a></li>
                         <li><a href="patientsearch.php">Patient Search</a></li>
+                        <li><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -43,7 +45,16 @@
 	<html>
 <body>
 
+
+
+
 <br>
+
+<form form style="text-align:center" action="maxpatient.php">
+    <input type="submit" value="Max/Min #ofAppointments">
+</form>
+
+<p align="center"> <br><b> OR </b><br><br> </p>
 
 <form form style="text-align:center" action="insertallappts.php">
     <input type="submit" value="View All Appointments">

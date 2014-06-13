@@ -36,11 +36,11 @@ if (mysqli_connect_errno()) {
                 <div class="container">
                     <ul class="nav">
                         <li><a href="doctormain.php">View My Information</a></li>
-                        <li class="active"><a href="mypatients.php">View My Patients</a></li>	
+                        <li><a href="mypatients.php">View My Patients</a></li>	
                         <li><a href="myappointments.php">View My Appointments</a></li>
                         <li><a href="createprescription.php">Create Prescription</a></li> 
                         <li><a href="searchprescription.php">Search Prescription</a></li> 
-                         <li><a href="prescriptioninfo.php">Prescription Information</a></li> 
+                        <li  class="active"><a href="prescriptioninfo.php">Prescription Information</a></li> 
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -49,11 +49,11 @@ if (mysqli_connect_errno()) {
     </div>
 
 
+</body>
+
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </html>
-
-
 
 
 <?php
@@ -71,32 +71,27 @@ else
 
 session_start();
 // username and password sent from form 
-$mystaffID = $_SESSION['mystaffID'];
-//echo $mystaffID . "<p>"; 
-$mylicense = $_SESSION['mylicense'];
-//echo $mylicense;
+//$carecard = $_POST['carecard'];
+//echo $carecard . "<p>"; 
+$name = $_POST['name'];
+//echo $name;
 
-echo "<h2><center>Doctor's Assigned Patients</h2>";
+echo "<center><h2>Average Dosage of '$name'</h2>";
 
-$doctorsPatients = mysqli_query($con,"SELECT P.CareCard, P.name, P.phone, D.appointmentID, D.staffID 
-    FROM Patient P, DoctorsSee D WHERE '$mystaffID'=D.staffID AND P.CareCard=D.CareCard");
+$avgAloxi = mysqli_query($con,"SELECT AVG(dosage)
+FROM PrescribedMedicines
+WHERE name='$name'");
 
-$count=mysqli_num_rows($doctorsPatients);
-
-echo "<center><table border='1' style='width:800px'>
+echo "<table border='1'>
 <tr>
-<th>CareCard #</th>
-<th>Name</th>
-<th>Phone</th>
-<th>Appointment ID</th>
+<th>Average (consumption/week)</th>
+
 </tr>";
 
-while($row = mysqli_fetch_array($doctorsPatients)) {
+while($row = mysqli_fetch_array($avgAloxi)) {
   echo "<tr>";
-  echo '<td align="center">' . $row['CareCard'] . "</td>";
-  echo '<td align="center">' . $row['name'] . "</td>";
-  echo '<td align="center">' . $row['phone'] . "</td>";
-  echo '<td align="center">' . $row['appointmentID'] . "</td>";
+  echo '<td align="center">' . $row['AVG(dosage)'] . "</td>";
+
   echo "</tr>";
 }
 
@@ -105,18 +100,72 @@ echo "</table><p></p>";
 
 
 
+echo "<h2>Minimum Dosage of '$name'</h2>";
 
+$minAloxi = mysqli_query($con,"SELECT MIN(dosage)
+FROM PrescribedMedicines
+WHERE name='$name'");
 
-// If result matched $mystaffID and $mylicense, table row must be 1 row
-if($count == 0){
-echo "Wrong staffID# or License";
+echo "<table border='1'>
+<tr>
+<th>Minimum (consumption/week)</th>
 
+</tr>";
+
+while($row = mysqli_fetch_array($minAloxi)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['MIN(dosage)'] . "</td>";
+
+  echo "</tr>";
 }
-else {
-    // Register $mystaffID, $mylicense and redirect to file "login_success.php"
+
+echo "</table><p></p>";
 
 
 
-//echo "Successful";
+echo "<h2>Maximum Dosage of '$name'</h2>";
+
+$maxAloxi = mysqli_query($con,"SELECT MAX(dosage)
+FROM PrescribedMedicines
+WHERE name='$name'");
+
+echo "<table border='1'>
+<tr>
+<th>Maximum (consumption/week)</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($maxAloxi)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['MAX(dosage)'] . "</td>";
+
+  echo "</tr>";
 }
+
+echo "</table><p></p>";
+
+
+echo "<h2>'$name' Dosages</h2>";
+
+$aloxiDosage= mysqli_query($con,"SELECT dosage
+FROM PrescribedMedicines
+WHERE name='$name'");
+
+echo "<table border='1'>
+<tr>
+<th>Dosages</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($aloxiDosage)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['dosage'] . "</td>";
+
+  echo "</tr>";
+}
+
+echo "</center></table><p></p>";
+
+
+
 ?>

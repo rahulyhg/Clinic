@@ -26,10 +26,10 @@
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="receptionistmain.php">View My Information</a></li>
-                        <li><a href="viewappointments.php">View Appointments</a></li>
-						<li class="active"><a href="setappointment.php">Set Appointment</a></li>
-                        <li><a href="deleteappointment.php">Delete Appointment</a></li>
+                            <li ><a href="#">View My Information</a></li>
+                        <li><a href="viewappointments.php">View Appointments</a></li> 
+                        <li><a href="setappointment.php">Set Appointment</a></li>
+                        <li class="active"><a href="deleteappointment.php">Delete Appointment</a></li>
                         <li><a href="createpatient.php">Create New Patient</a></li>
                         <li><a href="patientsearch.php">Patient Search</a></li>
                         <li><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
@@ -42,39 +42,42 @@
 
 
     </div>
-	
-	<html>
-<body>
 
-<br>
 
-<form form style="text-align:center" action="insertnewappt.php" method="post">
-  <fieldset>
-<legend>Enter Appointment Information:</legend>
 
-AppointmentID: <input type="text" name="appointmentID"><br>
-StaffID: <input type="text" name="staffID"><br>
-Date: <input type="text" name="date"><br>
-Time: <input type="text" name="time"><br>
-Address: <input type="text" name="addr"><br><br>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    
 
-<input type="submit">
-  </fieldset>
-</form>
+<?php
+$con=mysqli_connect("localhost","root","0123456","clinic");
+// Check connection
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
 
-<hr>
-</body>
+// escape variables for security
+$prescriptionid = mysqli_real_escape_string($con, $_POST['prescriptionid']);
+
+
+$sql="DELETE From During where During.prescriptionid='$prescriptionid'";
+
+if (!mysqli_query($con,$sql)) {
+  die('Error: ' . mysqli_error($con));
+}
+echo "<h3><center>Appointment has been deleted</center></h3>";
+
+mysqli_close($con);
+?>
+
+
+<html>
+<FORM><INPUT form style="text-align:center" Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
 </html>
 
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-	
 
-</div>
-
-
-	
-	
-	
-	
+    
+    
+    
+    
 </body>

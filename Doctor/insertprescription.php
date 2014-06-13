@@ -20,6 +20,8 @@ VALUES ('$prescriptionid', '$staffid', '$license', '$med', '$dosage', '$exp')";
 
 if (!mysqli_query($con,$sql)) {
   die('Error: ' . mysqli_error($con));
+
+
 }
 echo "1 record added";
 

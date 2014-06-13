@@ -35,13 +35,13 @@ if (mysqli_connect_errno()) {
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li class="active"><a href="#">View My Information</a></li>
+                        <li><a href="receptionistmain.php">View My Information</a></li>
                         <li><a href="viewappointments.php">View Appointments</a></li> 
                         <li><a href="setappointment.php">Set Appointment</a></li>
-                        <li><a href="deleteappointment.php">Delete Appointment</a></li>
+                          <li><a href="deleteappointment.php">Delete Appointment</a></li>
                         <li><a href="createpatient.php">Create New Patient</a></li>
                         <li><a href="patientsearch.php">Patient Search</a></li>
-                        <li><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
+                        <li class "active"><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -49,7 +49,6 @@ if (mysqli_connect_errno()) {
         </div>
     </div>
 
-<h3 align="center"> You are currently viewing as a receptionist. <br> What would you like to do?</h3>
 
 
 </body>
@@ -74,67 +73,32 @@ else
 
 session_start();
 // username and password sent from form 
-$mystaffID = $_SESSION['mystaffID'];
-//echo $mystaffID; 
-//$mylname = $_SESSION['mylname'];
-//echo $mylname;
+echo "<center><h2>Patients who have picked up medicine from all Pharmacy</h2>";
 
-//$addr="SELECT phone FROM staff WHERE CareCard=$mystaffID AND name='$mylname'";
+$divPatientsAllPharmacy = mysqli_query($con,"SELECT P.name
+FROM Patient P
+WHERE NOT EXISTS (SELECT Ph.addr, Ph.pname
+FROM Pharmacy Ph
+WHERE NOT EXISTS (SELECT Pi.addr, Pi.pname
+FROM Pickup Pi
+WHERE Ph.addr=Pi.addr AND Ph.pname=Pi.pname
+AND Pi.CareCard=P.CareCard))");
 
-
-$all="SELECT * FROM staff WHERE staffID=$mystaffID";
-
-$result=mysqli_query($con,$all);
-
-$count=mysqli_num_rows($result);
-
-
-$patients = mysqli_query($con,"SELECT * FROM staff");
-
-echo "<center><table border='5' style='width:1000px'>
+echo "<table border='1' style='width:600px'>
 <tr>
-<th>StaffID</th>
 <th>Name</th>
-<th>Gender</th>
-<th>Address</th>
-<th>Phone</th>
 
 </tr>";
 
-while($row = mysqli_fetch_array($result)){
-   echo "<tr>";
-  echo '<td align="center">' . $row['staffID'] . "</td>";
+while($row = mysqli_fetch_array($divPatientsAllPharmacy)) {
+  echo "<tr>";
   echo '<td align="center">' . $row['name'] . "</td>";
-  echo '<td align="center">'. $row['gender'] . "</td>";
-  echo '<td align="center">' . $row['addr'] . "</td>";
-  echo '<td align="center">'. $row['phone'] . "</td>";
-
-
   echo "</tr>";
-
-
-
-echo "</table><p></p></center>";
-
 }
 
-
-//hello
-
+echo "</center></table><p></p>";
 
 
 
-// If result matched $mystaffID and $mylname, table row must be 1 row
-if($count == 0){
-echo "Wrong staffID";
-
-}
-else {
-    // Register $mystaffID, $mylname and redirect to file "login_success.php"
-
-
-
-//echo "Successful";
-}
 
 ?>

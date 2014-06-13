@@ -45,7 +45,6 @@
 	<html>
 <body>
 
-<h3 align="center"> Viewing All Appointments:</h3>
 
 </body>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -65,43 +64,47 @@ session_start();
 // escape variables for security
 //$apptid = mysqli_real_escape_string($con, $_POST['apptid']);
 
+echo "<center><h2>Maximum # Of Appointments</h2>";
 
-$allappts ="SELECT * FROM setappointments"; 
+$max = mysqli_query($con,"SELECT Temp.carecard, Temp.name, Max(Temp.NoOfApp) FROM (SELECT p.carecard, p.name, appointmentid, p.gender, count(appointmentid) as NoOfApp FROM Patient p, Book b Where p.carecard=b.carecard GROUP BY p.carecard) Temp GROUP BY Temp.carecard ORDER BY Max(Temp.NoOfApp) Desc Limit 1");
 
-$result=mysqli_query($con,$allappts);
-
-$count=mysqli_num_rows($result);
-
-echo "<center><table border='5' style='width:800px'>
+echo "<table border='1' style='width:800px'>
 <tr>
-<th>AppointmentID</th>
-<th>StaffID</th>
-<th>Date</th>
-<th>Time</th>
-<th>Address</th>
+<th>Carecard No</th>
+<th>Name</th>
+<th># Of Appointment</th>
 </tr>";
 
-while($row = mysqli_fetch_array($result)){
-   echo "<tr>";
-  echo '<td align="center">' . $row['appointmentID'] . "</td>";
-  echo '<td align="center">' . $row['staffID'] . "</td>";
-  echo '<td align="center">'. $row['date'] . "</td>";
-  echo '<td align="center">' . $row['time'] . "</td>";
-  echo '<td align="center">'. $row['addr'] . "</td>";
+while($row = mysqli_fetch_array($max)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['carecard'] . "</td>";
+  echo '<td align="center">' . $row['name'] . "</td>";
+  echo '<td align="center">' . $row['Max(Temp.NoOfApp)'] . "</td>";
   echo "</tr>";
-
 }
-echo "</table><p></p></center>";
 
-// If result matched $mycarecard and $mylname, table row must be 1 row
-if($count == 0){
-echo "No appointments made yet.";
+echo "</table><p></p>";
 
+
+echo "<h2>Min # Of Appointments</h2>";
+
+$min = mysqli_query($con,"SELECT Temp.carecard, Temp.name, Min(Temp.NoOfApp) FROM (SELECT p.carecard, p.name, appointmentid, p.gender, count(appointmentid) as NoOfApp FROM Patient p, Book b Where p.carecard=b.carecard GROUP BY p.carecard) Temp GROUP BY Temp.carecard ORDER BY Min(Temp.NoOfApp) Limit 1");
+
+echo "<table border='1' style='width:800px'>
+<tr>
+<th>Carecard No</th>
+<th>Name</th>
+<th># Of Appointment</th>
+</tr>";
+
+while($row = mysqli_fetch_array($min)) {
+  echo "<tr>";
+  echo '<td align="center">'. $row['carecard'] . "</td>";
+  echo '<td align="center">' . $row['name'] . "</td>";
+  echo '<td align="center">' . $row['Min(Temp.NoOfApp)'] . "</td>";
+  echo "</tr>";
 }
-else {
-    // Register $mycarecard, $mylname and redirect to file "login_success.php"
 
-//echo "Successful";
-}
+echo "</center></table><p></p>";
 
 ?>

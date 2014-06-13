@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <?php
+
+
+// Put this code in first line of web page.  
+session_start();
+session_destroy();
+
 //Create connection
 $con=mysqli_connect("localhost","root","0123456","clinic");
 //Check connection
@@ -19,14 +25,19 @@ if (mysqli_connect_errno()) {
 <body>
 
     <div class="container">
-        <h1><a href="doctormain.php">The Clinic</a>
+        <h1><a href="index.php">The Clinic</a>
 		  <div class="pull-right">
 			<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					Doctor: <span class="caret"></span>
+					Login As: <span class="caret"></span>
 					</button>
 					
-				
+				<ul class="dropdown-menu" style="right: 0; left: auto"; role="menu">
+					<li><a href="Patient/login.php">Patient</a></li>
+					<li class="divider"></li>
+					<li><a href="Doctor/dlogin.php">Doctor</a></li>
+					<li><a href="Receptionist/rlogin.php">Receptionist</a></li>
+			  </ul>
 			</div>
 		  </div>
 		  </h1>
@@ -35,35 +46,16 @@ if (mysqli_connect_errno()) {
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="doctormain.php">View My Information</a></li>
-                        <li><a href="mypatients.php">View My Patients</a></li>	
-                        <li><a href="myappointments.php">View My Appointments</a></li>
-                        <li><a href="createprescription.php">Create Prescription</a></li> 
-                        <li class="active"><a href="searchprescription.php">Search Prescription</a></li> 
-                         <li><a href="prescriptioninfo.php">Prescription Information</a></li> 
-                        <li><a href="../index.php">Logout</a></li>
+                        <li><a href="index.php">About Us</a></li>
+						<li class="active"><a href="#">Contact Information</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-
-<br>
-
-<form form style="text-align:center" action="getprescription.php" method="post">
-  <fieldset>
-<legend>Enter Patient's Information:</legend>
-
-CareCard#: <input type="text" name="carecard"><br>
-Name: <input type="text" name="name"><br>
-
-
-<input type="submit">
-  </fieldset>
-</form>
-
-<hr>
+<h1 align="center"> Welcome to our Clinic!</h1>
+<h2 align="center"><font size="4"> Address: 42 Wallaby <br> Phone: 604-290-0081 <br> Mon-Sun: 7am-6pm</font></h2>
 
 
 </body>
@@ -71,8 +63,3 @@ Name: <input type="text" name="name"><br>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </html>
-
-
-
-
-

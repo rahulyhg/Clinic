@@ -47,7 +47,7 @@ if (mysqli_connect_errno()) {
                 <div class="container">
                     <ul class="nav">
                         <li class="active"><a href="#">About Us</a></li>
-						<li><a href="#">Contact Information</a></li>
+						<li><a href="ourinfo.php">Contact Information</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,6 +57,71 @@ if (mysqli_connect_errno()) {
 <h1 align="center"> Welcome to our Clinic!</h1>
 <p align="center"><img border="1" src="img/MainPic.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
 
+
+
+<p align="center"><font size="5">We currently have: <?php 
+//echo "<h2><center>Number of Receptionists</h2>";
+
+$numReceptionists = mysqli_query($con,"SELECT COUNT(*) FROM Receptionists");
+
+echo "<center><table border='1'>
+<tr>
+<th># of Receptionists</th>
+</center>
+</tr>";
+
+while($row = mysqli_fetch_array($numReceptionists)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['COUNT(*)'] . "</td>";
+  echo "</tr>";
+}
+echo "</table><p></p>";
+
+
+
+
+
+//echo "<h2>Number of Patients</h2>";
+
+$numPatients = mysqli_query($con,"SELECT COUNT(*) FROM Patient");
+
+echo "<table border='1'>
+<tr>
+<th># of Patients</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($numPatients)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['COUNT(*)'] . "</td>";
+
+  echo "</tr>";
+}
+
+echo "</table><p></p>";
+
+
+
+//echo "<h2>Number of Doctors</h2>";
+
+$numDoctors = mysqli_query($con,"SELECT COUNT(*) FROM DoctorsSee");
+
+echo "<table border='1'>
+<tr>
+<th># of Doctors</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($numDoctors)) {
+  echo "<tr>";
+  echo '<td align="center">' . $row['COUNT(*)'] . "</td>";
+
+  echo "</tr>";
+}
+
+echo "</table><p></p>";
+?>
+</font></p>
 
 </body>
 

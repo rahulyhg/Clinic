@@ -32,6 +32,7 @@
 						<li><a href="setappointment.php">Set Appointment</a></li>
                         <li><a href="createpatient.php">Create New Patient</a></li>
                         <li class="active"><a href="#">Patient Search</a></li>
+                        <li><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
                         <li><a href="../index.php">Logout</a></li>
 
                     </ul>

@@ -41,6 +41,7 @@ if (mysqli_connect_errno()) {
                         <li><a href="myappointments.php">View My Appointments</a></li>
                         <li class="active"><a href="createprescription.php">Create Prescription</a></li> 
                         <li><a href="searchprescription.php">Search Prescription</a></li> 
+                         <li><a href="prescriptioninfo.php">Prescription Information</a></li> 
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -88,7 +89,7 @@ if (!$con) {
 }
 else
 {
-   echo "sucessful";  
+ //  echo "sucessful";  
 }
 
 session_start();
@@ -151,7 +152,7 @@ else {
 
 
 
-echo "Successful";
+//echo "Successful";
 }
 
 ?>

@@ -35,7 +35,7 @@ $cc = $_POST['cc'];
 <body>
 
 <?php
-echo "<h2><center>Doctor's Assigned Patients</h2>";
+echo "<h2><center>Information Updated</h2>";
 //echo $name;
 //echo $carecard;
 $state = "UPDATE Patient SET addr='$myaddr', phone='$myphn' WHERE carecard=$cc";
@@ -46,7 +46,7 @@ $state = "UPDATE Patient SET addr='$myaddr', phone='$myphn' WHERE carecard=$cc";
 if (!mysqli_query($con,$state)) {
   die('Error: ' . mysqli_error($con));
 }
-echo "<h3><center>Information Updated</center></h3>";
+//echo "<h3><center>Information Updated</center></h3>";
 
 
 

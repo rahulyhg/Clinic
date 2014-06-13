@@ -39,6 +39,7 @@ if (mysqli_connect_errno()) {
                         <li class="active"><a href="mypatients.php">View My Patients</a></li>	
                         <li><a href="myappointments.php">View My Appointments</a></li>
                         <li><a href="createprescription.php">Create Prescription</a></li> 
+                         <li><a href="prescriptioninfo.php">Prescription Information</a></li> 
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
