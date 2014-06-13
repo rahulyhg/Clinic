@@ -1,3 +1,11 @@
+<?php 
+session_start();
+// username and password sent from form 
+$mycarecard = $_SESSION['mycarecard'];
+//echo $mycarecard; 
+$mylname = $_SESSION['mylname'];
+//echo $mylname;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,12 +78,6 @@ else
  //  echo "sucessful";  
 }
 
-session_start();
-// username and password sent from form 
-$mycarecard = $_SESSION['mycarecard'];
-echo $mycarecard; 
-$mylname = $_SESSION['mylname'];
-echo $mylname;
 
 
 //$addr="SELECT phone FROM patient WHERE staffID=$mystaffID AND license='$mylicense'";

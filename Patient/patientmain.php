@@ -1,5 +1,14 @@
-<!DOCTYPE html>
+
 <?php
+session_start();
+if (isset($_SESSION['mycarecard']))
+{
+  $mycarecard = $_SESSION['mycarecard'];
+}
+else
+{
+  $mycarecard = intval( $_POST['cc']);
+}
 //Create connection
 $con=mysqli_connect("localhost","root","0123456","clinic");
 //Check connection
@@ -7,7 +16,7 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -50,39 +59,31 @@ if (mysqli_connect_errno()) {
 
 <?php
 
-$con=mysqli_connect("localhost","root","0123456","clinic");
-//Check connection
-if (!$con) {
-    die('Could not connect' . mysqli_error());
-   // echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-else
-{
-  // echo "sucessful";  
-}
 
-session_start();
+
 // username and password sent from form 
-$mycarecard = $_SESSION['mycarecard'];
+
 //echo $mycarecard; 
-$mylname = $_SESSION['mylname'];
+//$mylname = $_SESSION['mylname'];
 //echo $mylname;
 
 /////////
 
-$_SESSION['carecard']="$mycarecard";
-$_SESSION['lname']="$mylname";
+//$_SESSION['carecard']=$mycarecard;
+//$_SESSION['lname']=$mylname;
 
 ////////
 
-$all="SELECT * FROM patient WHERE CareCard=$mycarecard AND name='$mylname'";
+
+
+$all="SELECT * FROM patient WHERE CareCard=$mycarecard ";
 
 $result=mysqli_query($con,$all);
 
 $count=mysqli_num_rows($result);
 
 
-$patients = mysqli_query($con,"SELECT * FROM Patient");
+//$patients = mysqli_query($con,"SELECT * FROM Patient");
 
 echo "<center><table border='5' style='width:1000px'>
 <tr>
@@ -129,8 +130,9 @@ else {
 
 <br><br>
 <p align="center"><i> See something wrong? Click to update information!</i>
-<form form style="text-align:center" action="updateinfo.php">
+<form form style="text-align:center" action="updateinfo.php" method="post">
     <input type="submit" value="Update Information">
+    <input type="hidden" name="cc" value = <?php echo $mycarecard ?>>
 </form>
 </p>
 

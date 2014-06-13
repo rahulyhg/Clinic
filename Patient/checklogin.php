@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $host="localhost"; // Host name 
 $username="root"; // Mysql username 
 $password="0123456"; // Mysql password 
@@ -23,7 +23,7 @@ else
    echo "sucessful";	
 }
 
-session_start();
+
 // username and password sent from form 
 $mycarecard=intval($_POST['carecard']); 
 $mylname=$_POST['lname']; 
@@ -53,6 +53,9 @@ echo "Wrong CareCard# or Surname";
 else {
 	// Register $mycarecard, $mylname and redirect to file "login_success.php"
 echo "Successful";
+
+//$_SESSION[$thisGetLoginSessionVar()] = $mycarecard;
+//session_register($mycarecard);
 $_SESSION['mycarecard'] = $mycarecard;
 $_SESSION['mylname'] = $mylname;
 header("location:loginsuccess.php");

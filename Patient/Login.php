@@ -40,10 +40,6 @@
 
 
 
-</body>
-
-
-
 <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
 <tr>
 <form name="form1" method="post" action="checklogin.php">
@@ -73,7 +69,7 @@
 </form>
 </tr>
 </table>
-
+</body>
 
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>

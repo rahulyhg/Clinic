@@ -1,12 +1,11 @@
+
 <?php
-
-
-
+session_start();
 $con=mysqli_connect("localhost","root","0123456","clinic");
 //Check connection
 if (!$con) {
     die('Could not connect' . mysqli_error());
-   // echo "Failed to connect to MySQL: " . mysqli_connect_error();
+   // echo "Failed to connect to MySQL: " . mysqli_connect_error();   
 }
 else
 {
@@ -14,37 +13,55 @@ else
 }
 
 
-session_start();
+
 // username and password sent from form
-$carecard= $_SESSION['carecard'];
-echo $carecard;
-$name= $_SESSION['lname'];
-echo $name;
+
+if(isset($_SESSION['mycarecard']))
+{
+	//$carecard= $_SESSION['mycarecard'];
+	//echo $carecard;
+} else
+{
+	//echo "failed";
+	//$carecard = 193785;
+}
 $myaddr = $_POST['addr']; 
 $myphn = $_POST['phn'];
-//echo $mystaffID . "<p>"; 
+$cc = $_POST['cc'];
+?>
 
-//echo $mylicense;
+<!DOCTYPE html>
+<html>
+<body>
 
+<?php
 echo "<h2><center>Doctor's Assigned Patients</h2>";
+//echo $name;
+//echo $carecard;
+$state = "UPDATE Patient SET addr='$myaddr', phone='$myphn' WHERE carecard=$cc";
 
-$update = mysqli_query($con,"UPDATE Patient SET '$myaddr'=addr AND '$myphn'=phone 
-   WHERE '$carecard'=carecard AND '$name'=name");
+//$update = mysqli_query($con,$state);
 
 
-if (!mysqli_query($con,$update)) {
+if (!mysqli_query($con,$state)) {
   die('Error: ' . mysqli_error($con));
 }
-echo "Information Updated";
+echo "<h3><center>Information Updated</center></h3>";
 
 
 
 mysqli_close($con);
 
 
+
 ?>
 
 
-<html>
-<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+<FORM form style="text-align:center" action="patientmain.php" method="post">
+<INPUT Type="submit" VALUE="Back" ></INPUT>
+<input type="hidden" name="cc" value = <?php echo $cc ?>><br>
+
+</FORM>  
+
+</body>
 </html>

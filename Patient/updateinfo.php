@@ -1,13 +1,21 @@
-<!DOCTYPE html>
+
 <?php
 //Create connection
+
+session_start();
+//$carecard= $_SESSION['mycarecard'];
+$carecard= $_POST['cc'];
 $con=mysqli_connect("localhost","root","0123456","clinic");
 //Check connection
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+function gotos()
+{
+    header("location:grabupdated.php");
+}
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -44,6 +52,20 @@ if (mysqli_connect_errno()) {
         </div>
     </div>
 
+
+<?php
+//session_start();
+//$carecard= $_SESSION['mycarecard'];
+
+//$name= $_SESSION['lname'];
+//echo $name;
+
+
+
+//$_SESSION['carecard']=$mycarecard;
+//$_SESSION['lname']=$mylname;
+
+?>
 <form form style="text-align:center" action="grabupdated.php" method="post">
   <fieldset>
 <legend>Enter your new information:</legend>
@@ -51,26 +73,18 @@ if (mysqli_connect_errno()) {
 
 Address: <input type="text" name="addr" required><br>
 Phone #: <input type="text" name="phn" required><br>
+<input type="hidden" name="cc" value = <?php echo $carecard ?>><br>
 
-<input type="submit">
+
+<input type="submit" >
   </fieldset>
 </form>
+
 
 <br>
 
 
-<?php
-session_start();
-$carecard= $_SESSION['carecard'];
-echo $carecard;
-$name= $_SESSION['lname'];
 
-
-
-$_SESSION['carecard']="$mycarecard";
-$_SESSION['lname']="$mylname";
-
-?>
 
 
 
