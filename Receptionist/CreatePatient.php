@@ -22,23 +22,42 @@
 		  </div>
 		  </h1>
 
-        <div class="navbar">
+                <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="receptionistmain.php">View My Information</a></li>
-                        <li><a href="viewappointments.php">View Appointments</a></li>
-						<li><a href="setappointment.php">Set Appointment</a></li>
-                        <li><a href="deleteappointment.php">Delete Appointment</a></li>
-                        <li class="active"><a href="#">Create New Patient</a></li>
-                        <li><a href="patientsearch.php">Patient Search</a></li>
-                        <li><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
-                        <li><a href="../index.php">Logout</a></li>
+                        <li><a href="showmyinfo.php">Personal Information</a></li>
 
-                    </ul>
-                </div>
+                        
+
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              About Patients
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li class="active"><a href="createpatient.php">Create New Patient</a></li>
+                              <li><a href="patientsearch.php">Patient Search</a></li>
+                              <li><a href="patientpickupmed.php">Patient's Medicine Pickup</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Appointments 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="viewappointments.php">View Appointments</a></li>
+                              <li><a href="setappointment.php">Set Appointment</a></li>
+                              <li><a href="deleteappointment.php">Delete Appointments</a></li>
+                         
+                            </ul>
+                        </li>
+                        <li><a href="../index.php">Logout</a></li>
+                </ul>                        
             </div>
         </div>
+    </div>
 
 
     </div>
@@ -48,21 +67,52 @@
 
 <br>
 
+
 <form form style="text-align:center" action="insertnewpatient.php" method="post">
-  <fieldset>
+ <fieldset>
 <legend>Enter Patient Information:</legend>
-CareCard #: <input type="text" name="carecard"><br><br>
-Name: <input type="text" name="name"> <br><i>*Initial of first name and full surname i.e. A. Jolie</i><br><br>
-Gender: <input type="text" name="gender"><br>
-Address: <input type="text" name="addr"><br>
-Phone #: <input type="text" name="phn"><br>
-Date Of Birth: <input type="text" name="dob"><br>
-Checkup Date: <input type="text" name="checkup"><br>
-
-
-<input type="submit">
-  </fieldset>
+  <table align="center">
+    <tr>
+      <td align="right">CareCard #:</td>
+      <td align="left"><input type="text" name="carecard" required/></td>
+    </tr>
+    <tr>
+      <td align="right">Name:</td>
+      <td align="left"><input type="text" name="name" required/></td>
+    </tr>   
+    <tr>
+      <td></td>
+      <td align="left"><i>*Initial of first name and full surname i.e. A. Jolie<i></td>
+    </tr>
+    <tr>
+      <td align="right">Gender:</td>
+      <td align="left"><input type="text" name="gender" required/></td>
+    </tr> 
+    <tr>
+      <td align="right">Address:</td>
+      <td align="left"><input type="text" name="addr" required/></td>
+    </tr> 
+    <tr>
+      <td align="right">Phone #:</td>
+      <td align="left"><input type="text" name="phn" required/></td>
+    </tr> 
+    <tr>
+      <td align="right">Date Of Birth:</td>
+      <td align="left"><input type="text" name="dob" required/></td>
+    </tr>  
+    <tr>
+      <td></td>
+      <td align="left"><i>*Must be in format: MM/DD/YYYY.<i></td>
+    </tr>
+    <tr>
+      <td align="right">Checkup Date:</td>
+      <td align="left"><input type="text" name="checkup" required/></td>
+    </tr>      
+  </table>
+  <input type="submit">
+</fieldset>
 </form>
+
 
 <hr>
 </body>

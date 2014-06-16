@@ -35,32 +35,62 @@ if (mysqli_connect_errno()) {
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="doctormain.php">View My Information</a></li>
-                        <li><a href="mypatients.php">View My Patients</a></li>	
-                        <li><a href="myappointments.php">View My Appointments</a></li>
-                        <li><a href="createprescription.php">Create Prescription</a></li> 
-                        <li class="active"><a href="searchprescription.php">Search Prescription</a></li> 
-                         <li><a href="prescriptioninfo.php">Prescription Information</a></li> 
+
+                        
+
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              Personal
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="showmyinfo.php">Personal Info</a></li>
+                              <li><a href="myappointments.php">All Appointments</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="mypatients.php">View Patients</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            About Prescriptions 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="createprescription.php">Create Prescription</a></li>
+                              <li class="active"><a href="searchprescription.php">Search Prescription</a></li>
+                              <li><a href="prescriptioninfo.php">Prescription Info</a></li>
+                         
+                            </ul>
+                        </li>
                         <li><a href="../index.php">Logout</a></li>
-                    </ul>
-                </div>
+                </ul>                        
             </div>
         </div>
+    </div>
     </div>
 
 
 <br>
 
+<p align="center"><img border="1" src="img/searchprescription.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
+
+
 <form form style="text-align:center" action="getprescription.php" method="post">
-  <fieldset>
+ <fieldset>
 <legend>Enter Patient's Information:</legend>
-
-CareCard#: <input type="text" name="carecard"><br>
-Name: <input type="text" name="name"><br>
-
-
-<input type="submit">
-  </fieldset>
+  <table align="center">
+    <tr>
+      <td align="right">CareCard#:</td>
+      <td align="left"><input type="text" name="carecard" required/></td>
+    </tr>
+    <tr>
+      <td align="right">Name:</td>
+      <td align="left"><input type="text" name="name" required/></td>
+    </tr>    
+  </table>
+  <input type="submit">
+</fieldset>
 </form>
 
 <hr>

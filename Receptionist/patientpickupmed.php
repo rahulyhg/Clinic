@@ -31,22 +31,42 @@ if (mysqli_connect_errno()) {
       </div>
       </h1>
 
-        <div class="navbar">
+                <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="receptionistmain.php">View My Information</a></li>
-                        <li><a href="viewappointments.php">View Appointments</a></li> 
-                        <li><a href="setappointment.php">Set Appointment</a></li>
-                          <li><a href="deleteappointment.php">Delete Appointment</a></li>
-                        <li><a href="createpatient.php">Create New Patient</a></li>
-                        <li><a href="patientsearch.php">Patient Search</a></li>
-                        <li class "active"><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
+                        <li><a href="showmyinfo.php">Personal Information</a></li>
+
+                        
+
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              About Patients
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="createpatient.php">Create New Patient</a></li>
+                              <li><a href="patientsearch.php">Patient Search</a></li>
+                              <li class="active"><a href="patientpickupmed.php">Patient's Medicine Pickup</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Appointments 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="viewappointments.php">View Appointments</a></li>
+                              <li><a href="setappointment.php">Set Appointment</a></li>
+                              <li><a href="deleteappointment.php">Delete Appointments</a></li>
+                         
+                            </ul>
+                        </li>
                         <li><a href="../index.php">Logout</a></li>
-                    </ul>
-                </div>
+                </ul>                        
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -73,7 +93,7 @@ else
 
 session_start();
 // username and password sent from form 
-echo "<center><h2>Patients who have picked up medicine from all Pharmacy</h2>";
+echo "<center><h2>Patients who have picked up medicine from all Pharmacies</h2>";
 
 $divPatientsAllPharmacy = mysqli_query($con,"SELECT P.name
 FROM Patient P

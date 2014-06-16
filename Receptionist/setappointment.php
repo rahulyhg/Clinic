@@ -22,23 +22,42 @@
 		  </div>
 		  </h1>
 
-        <div class="navbar">
+                <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="receptionistmain.php">View My Information</a></li>
-                        <li><a href="viewappointments.php">View Appointments</a></li>
-						<li class="active"><a href="setappointment.php">Set Appointment</a></li>
-                        <li><a href="deleteappointment.php">Delete Appointment</a></li>
-                        <li><a href="createpatient.php">Create New Patient</a></li>
-                        <li><a href="patientsearch.php">Patient Search</a></li>
-                        <li><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
-                        <li><a href="../index.php">Logout</a></li>
+                        <li><a href="showmyinfo.php">Personal Information</a></li>
 
-                    </ul>
-                </div>
+                        
+
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              About Patients
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="createpatient.php">Create New Patient</a></li>
+                              <li><a href="patientsearch.php">Patient Search</a></li>
+                              <li><a href="patientpickupmed.php">Patient's Medicine Pickup</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Appointments 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="viewappointments.php">View Appointments</a></li>
+                              <li class="active"><a href="setappointment.php">Set Appointment</a></li>
+                              <li><a href="deleteappointment.php">Delete Appointments</a></li>
+                         
+                            </ul>
+                        </li>
+                        <li><a href="../index.php">Logout</a></li>
+                </ul>                        
             </div>
         </div>
+    </div>
 
 
     </div>
@@ -49,18 +68,42 @@
 <br>
 
 <form form style="text-align:center" action="insertnewappt.php" method="post">
-  <fieldset>
+ <fieldset>
 <legend>Enter Appointment Information:</legend>
-
-AppointmentID: <input type="text" name="appointmentID"><br>
-StaffID: <input type="text" name="staffID"><br>
-Date: <input type="text" name="date"><br>
-Time: <input type="text" name="time"><br>
-Address: <input type="text" name="addr"><br><br>
-
-<input type="submit">
-  </fieldset>
+  <table align="center">
+    <tr>
+      <td align="right">AppointmentID:</td>
+      <td align="left"><input type="text" name="appointmentID" required/></td>
+    </tr>
+    <tr>
+      <td align="right">StaffID:</td>
+      <td align="left"><input type="text" name="staffID" required/></td>
+    </tr>   
+    <tr>
+      <td align="right">Date:</td>
+      <td align="left"><input type="text" name="date" required/></td>
+    </tr> 
+    <tr>
+      <td></td>
+      <td align="left"><i>Must be in format: MM/DD/YYYY</i></td>
+    </tr> 
+    <tr>
+      <td align="right">Time:</td>
+      <td align="left"><input type="text" name="time" required/></td>
+    </tr> 
+       <tr>
+      <td></td>
+      <td align="left"><i>Must be in 24 hr format</i></td>
+    </tr> 
+    <tr>
+      <td align="right">Address:</td>
+      <td align="left"><input type="text" name="addr" required/></td>
+    </tr> 
+  </table>
+  <input type="submit">
+</fieldset>
 </form>
+
 
 <hr>
 </body>

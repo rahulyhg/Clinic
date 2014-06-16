@@ -25,8 +25,38 @@ if(isset($_SESSION['mycarecard']))
 	//echo "failed";
 	//$carecard = 193785;
 }
+
+// format the number that's in xxxxxxxxxx to xxx-xxx-xxxx
+function convert_number($number) {
+	if (strlen($number) == 10) {
+		$formatted_number = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $number);
+		return $formatted_number;
+	} else 
+		return $number;
+}
+
+
+// test to see if the number is in either xxxxxxxxxx or xxx-xxx-xxxx
+function test_phone ($data) {
+
+		$formats = "/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i";
+
+		if (preg_match ($formats, $data)) 
+			return $data;
+		else return 1;
+}
+
+
 $myaddr = $_POST['addr']; 
-$myphn = $_POST['phn'];
+
+if (1 !== (test_phone($_POST['phn']))) {
+	$myphn=convert_number($_POST['phn']);
+} else {echo "<script language='javascript'>window.alert('Phone number is in the wrong format, must be format XXX-XXX-XXXX or XXXXXXXXXX (10 digits)');window.location.href='patientmain.php';</script>";
+            die;
+	}
+
+
+//$myphn = test_input($_POST['phn']);
 $cc = $_POST['cc'];
 ?>
 
@@ -46,7 +76,7 @@ $state = "UPDATE Patient SET addr='$myaddr', phone='$myphn' WHERE carecard=$cc";
 if (!mysqli_query($con,$state)) {
   die('Error: ' . mysqli_error($con));
 }
-//echo "<h3><center>Information Updated</center></h3>";
+
 
 
 
@@ -64,4 +94,5 @@ mysqli_close($con);
 </FORM>  
 
 </body>
+
 </html>

@@ -35,7 +35,8 @@ $mylname = $_SESSION['mylname'];
                 <div class="container">
                     <ul class="nav">
                         <li><a href="patientmain.php">View My Information</a></li>
-                        <li class="active"><a href="#">View My Appointments</a></li> 
+                        <li class="active"><a href="#">View My Appointments</a></li>
+                        <li><a href="viewmap.php">View Map</a></li> 
                         <li><a href="../index.php">Logout</a></li>
 
                     </ul>
@@ -57,6 +58,7 @@ $mylname = $_SESSION['mylname'];
     <script src="js/bootstrap.js"></script>
 </html>
 
+<p align="center"><img border="1" src="img/viewappointments.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
 
 
 
@@ -80,19 +82,8 @@ else
 
 
 
-//$addr="SELECT phone FROM patient WHERE staffID=$mystaffID AND license='$mylicense'";
 
-
-
-
-
-
-
-
-
-
-
-echo "<h2><center>Viewing Scheduled Appointments Under CareCard# : " . $mylname . "</center></h2>";
+echo "<h2><center>Viewing Scheduled Appointments Under Name: " . $mylname . "</center></h2>";
 
 $patientsAppts = mysqli_query($con,"SELECT p.name, s.addr, s.appointmentID, s.time, s.date 
 FROM Patient P, Book B, setappointments s WHERE P.CareCard=B.CareCard AND '$mycarecard'=P.CareCard");

@@ -45,7 +45,8 @@ if (mysqli_connect_errno()) {
                 <div class="container">
                     <ul class="nav">
                         <li class="active"><a href="#">View My Information</a></li>
-                        <li><a href="pappointments.php">View My Appointments</a></li>	
+                        <li><a href="pappointments.php">View My Appointments</a></li>
+                        <li><a href="viewmap.php">View Map</a></li>
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>
@@ -54,25 +55,17 @@ if (mysqli_connect_errno()) {
     </div>
 
 <!--<h1 align="center"> Welcome to our Clinic!</h1>-->
-<h3 align="center"> You are currently viewing as a patient. </h3>
+<h2 align="center"> Welcome to our Clinic!</h2>
+
+<p align="center"><img border="1" src="img/patientlogin.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
+
+
 <br>
 
 <?php
 
 
 
-// username and password sent from form 
-
-//echo $mycarecard; 
-//$mylname = $_SESSION['mylname'];
-//echo $mylname;
-
-/////////
-
-//$_SESSION['carecard']=$mycarecard;
-//$_SESSION['lname']=$mylname;
-
-////////
 
 
 
@@ -84,6 +77,9 @@ $count=mysqli_num_rows($result);
 
 
 //$patients = mysqli_query($con,"SELECT * FROM Patient");
+
+echo "<center><h2>Personal Information</h2>";
+
 
 echo "<center><table border='5' style='width:1000px'>
 <tr>

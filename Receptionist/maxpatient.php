@@ -22,22 +22,42 @@
 		  </div>
 		  </h1>
 
-        <div class="navbar">
+                <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="receptionistmain.php">View My Information</a></li>
-                        <li class="active"><a href="viewappointments.php">View Appointments</a></li> 
-                        <li><a href="setappointment.php">Set Appointment</a></li>
-                        <li><a href="deleteappointment.php">Delete Appointment</a></li>
-                        <li><a href="createpatient.php">Create New Patient</a></li>
-                        <li><a href="patientsearch.php">Patient Search</a></li>
-                        <li><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
+                        <li><a href="showmyinfo.php">Personal Information</a></li>
+
+                        
+
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              About Patients
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="createpatient.php">Create New Patient</a></li>
+                              <li><a href="patientsearch.php">Patient Search</a></li>
+                              <li><a href="patientpickupmed.php">Patient's Medicine Pickup</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Appointments 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li class="active"><a href="viewappointments.php">View Appointments</a></li>
+                              <li><a href="setappointment.php">Set Appointment</a></li>
+                              <li><a href="deleteappointment.php">Delete Appointments</a></li>
+                         
+                            </ul>
+                        </li>
                         <li><a href="../index.php">Logout</a></li>
-                    </ul>
-                </div>
+                </ul>                        
             </div>
         </div>
+    </div>
 
 
     </div>
@@ -50,6 +70,7 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </html>
+<p align="center"><img border="1" src="img/viewappointments.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
 
 
 <?php
@@ -68,11 +89,11 @@ echo "<center><h2>Maximum # Of Appointments</h2>";
 
 $max = mysqli_query($con,"SELECT Temp.carecard, Temp.name, Max(Temp.NoOfApp) FROM (SELECT p.carecard, p.name, appointmentid, p.gender, count(appointmentid) as NoOfApp FROM Patient p, Book b Where p.carecard=b.carecard GROUP BY p.carecard) Temp GROUP BY Temp.carecard ORDER BY Max(Temp.NoOfApp) Desc Limit 1");
 
-echo "<table border='1' style='width:800px'>
+echo "<table border='1' style='width:400px'>
 <tr>
-<th>Carecard No</th>
+<th>CareCard#</th>
 <th>Name</th>
-<th># Of Appointment</th>
+<th># Of Appointments</th>
 </tr>";
 
 while($row = mysqli_fetch_array($max)) {
@@ -86,15 +107,15 @@ while($row = mysqli_fetch_array($max)) {
 echo "</table><p></p>";
 
 
-echo "<h2>Min # Of Appointments</h2>";
+echo "<h2>Minimum # Of Appointments</h2>";
 
 $min = mysqli_query($con,"SELECT Temp.carecard, Temp.name, Min(Temp.NoOfApp) FROM (SELECT p.carecard, p.name, appointmentid, p.gender, count(appointmentid) as NoOfApp FROM Patient p, Book b Where p.carecard=b.carecard GROUP BY p.carecard) Temp GROUP BY Temp.carecard ORDER BY Min(Temp.NoOfApp) Limit 1");
 
-echo "<table border='1' style='width:800px'>
+echo "<table border='1' style='width:400px'>
 <tr>
-<th>Carecard No</th>
+<th>CareCard#</th>
 <th>Name</th>
-<th># Of Appointment</th>
+<th># Of Appointments</th>
 </tr>";
 
 while($row = mysqli_fetch_array($min)) {

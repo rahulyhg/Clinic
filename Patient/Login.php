@@ -30,7 +30,6 @@
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                       <!-- <li><a href="#">View My Information</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -38,41 +37,43 @@
     </div>
 
 
-
-
-<table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-<tr>
-<form name="form1" method="post" action="checklogin.php">
-<td>
-<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-<tr>
-<legend align="center">Enter Your Information:</legend>
+<!--
+<form form style="text-align:center" action="checklogin.php" method="post">
+  <fieldset>
+<legend>Enter Your Information:</legend>
 <br>
-</tr>
-<tr>
-<td width="98">CareCard#</td>
-<td width="6">:</td>
-<td width="294"><input name="carecard" type="text" id="carecard"></td>
-</tr>
-<tr>
-<td>Surname</td>
-<td>:</td>
-<td><input name="lname" type="text" id="lname"></td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><input type="submit" name="Submit" value="Login"></td>
-</tr>
-</table>
-</td>
+
+
+CareCard#: <input name="carecard" type="text" id="carecard" required><br>
+Surname: <input name="lname" type="text" id="lname" required><br>
+    <i> *Surname has to be in format: A. Jolie<i><br><br>
+<input type="submit" name="Submit" value="Login">
+  </fieldset>
 </form>
-</tr>
-</table>
-</body>
+-->
+
+<form form style="text-align:center" action="checklogin.php" method="post">
+ <fieldset>
+<legend>Enter Your Information:</legend>
+  <table align="center">
+    <tr>
+      <td align="right">Carecard#:</td>
+      <td align="left"><input type="text" name="carecard" required/></td>
+    </tr>
+    <tr>
+      <td align="right">Name:</td>
+      <td align="left"><input type="text" name="lname" required/></td>
+    </tr>    
+    <tr>
+        <td></td>
+        <td align="left"><i> *Name has to be in format: A. Jolie<i><br><br></td>
+    </tr>
+  </table>
+ <input type="submit" name="Submit" value="Login">
+</fieldset>
+</form>
 
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </html>
-

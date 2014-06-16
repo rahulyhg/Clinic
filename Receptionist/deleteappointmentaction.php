@@ -21,5 +21,5 @@ mysqli_close($con);
 
 
 <html>
-<FORM><INPUT form style="text-align:center" Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+<FORM><center><INPUT form style="text-align:center" Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
 </html>

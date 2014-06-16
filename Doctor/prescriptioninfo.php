@@ -35,17 +35,39 @@ if (mysqli_connect_errno()) {
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="doctormain.php">View My Information</a></li>
-                        <li><a href="mypatients.php">View My Patients</a></li>	
-                        <li><a href="myappointments.php">View My Appointments</a></li>
-                        <li><a href="createprescription.php">Create Prescription</a></li> 
-                        <li><a href="searchprescription.php">Search Prescription</a></li> 
-                        <li  class="active"><a href="prescriptioninfo.php">Prescription Information</a></li> 
+
+                        
+
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              Personal
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="showmyinfo.php">Personal Info</a></li>
+                              <li><a href="myappointments.php">All Appointments</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="mypatients.php">View Patients</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            About Prescriptions 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="createprescription.php">Create Prescription</a></li>
+                              <li><a href="searchprescription.php">Search Prescription</a></li>
+                              <li class="active"><a href="prescriptioninfo.php">Prescription Info</a></li>
+                         
+                            </ul>
+                        </li>
                         <li><a href="../index.php">Logout</a></li>
-                    </ul>
-                </div>
+                </ul>                        
             </div>
         </div>
+    </div>
     </div>
 
     

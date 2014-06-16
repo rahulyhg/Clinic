@@ -20,15 +20,15 @@ if (!$con) {
 }
 else
 {
-   echo "sucessful";	
+ //  echo "sucessful";	
 }
 
 
-// username and password sent from form 
+// username and name sent from form 
 $mycarecard=intval($_POST['carecard']); 
 $mylname=$_POST['lname']; 
-echo $mycarecard;
-echo $mylname;
+//echo $mycarecard;
+//echo $mylname;
 
 // To protect MySQL injection (more detail about MySQL injection)
 //$mycarecard = stripslashes($mycarecard);
@@ -47,12 +47,12 @@ $row = mysqli_fetch_array($result, MYSQL_BOTH);
 $count=mysqli_num_rows($result);
 // If result matched $mycarecard and $mylname, table row must be 1 row
 if($count == 0){
-echo "Wrong CareCard# or Surname";
+echo "<h2><center>Incorrect CareCard# or Name. Please try again.</h2>";
+
 
 }
 else {
 	// Register $mycarecard, $mylname and redirect to file "login_success.php"
-echo "Successful";
 
 //$_SESSION[$thisGetLoginSessionVar()] = $mycarecard;
 //session_register($mycarecard);
@@ -60,10 +60,11 @@ $_SESSION['mycarecard'] = $mycarecard;
 $_SESSION['mylname'] = $mylname;
 header("location:loginsuccess.php");
 
-
-
-
 }
 
 mysqli_close($con);
 ?>
+
+<html>
+<FORM><center><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+</html>

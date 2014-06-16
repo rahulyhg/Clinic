@@ -35,17 +35,39 @@ if (mysqli_connect_errno()) {
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="doctormain.php">View My Information</a></li>
-                        <li class="active"><a href="mypatients.php">View My Patients</a></li>	
-                        <li><a href="myappointments.php">View My Appointments</a></li>
-                        <li><a href="createprescription.php">Create Prescription</a></li> 
-                        <li><a href="searchprescription.php">Search Prescription</a></li> 
-                         <li><a href="prescriptioninfo.php">Prescription Information</a></li> 
+
+                        
+
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              Personal
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="showmyinfo.php">Personal Info</a></li>
+                              <li><a href="myappointments.php">All Appointments</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="mypatients.php">View Patients</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            About Prescriptions 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="createprescription.php">Create Prescription</a></li>
+                              <li><a href="searchprescription.php">Search Prescription</a></li>
+                              <li><a href="prescriptioninfo.php">Prescription Info</a></li>
+                         
+                            </ul>
+                        </li>
                         <li><a href="../index.php">Logout</a></li>
-                    </ul>
-                </div>
+                </ul>                        
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -53,6 +75,8 @@ if (mysqli_connect_errno()) {
     <script src="js/bootstrap.js"></script>
 </html>
 
+
+<p align="center"><img border="1" src="img/viewpatients.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
 
 
 
@@ -76,7 +100,7 @@ $mystaffID = $_SESSION['mystaffID'];
 $mylicense = $_SESSION['mylicense'];
 //echo $mylicense;
 
-echo "<h2><center>Doctor's Assigned Patients</h2>";
+echo "<h2><center>My Patients</h2>";
 
 $doctorsPatients = mysqli_query($con,"SELECT P.CareCard, P.name, P.phone, D.appointmentID, D.staffID 
     FROM Patient P, DoctorsSee D WHERE '$mystaffID'=D.staffID AND P.CareCard=D.CareCard");

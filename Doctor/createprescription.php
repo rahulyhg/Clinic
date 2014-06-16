@@ -36,35 +36,79 @@ if (mysqli_connect_errno()) {
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="doctormain.php">View My Information</a></li>
-                        <li><a href="mypatients.php">View My Patients</a></li>	
-                        <li><a href="myappointments.php">View My Appointments</a></li>
-                        <li class="active"><a href="createprescription.php">Create Prescription</a></li> 
-                        <li><a href="searchprescription.php">Search Prescription</a></li> 
-                         <li><a href="prescriptioninfo.php">Prescription Information</a></li> 
+
+                        
+      
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              Personal
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="showmyinfo.php">Personal Info</a></li>
+                              <li><a href="myappointments.php">All Appointments</a></li>
+                            </ul>
+                        </li>
+                        
+
+                        
+                        <li><a href="mypatients.php">View Patients</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            About Prescriptions 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li class="active"><a href="createprescription.php">Create Prescription</a></li>
+                              <li><a href="searchprescription.php">Search Prescription</a></li>
+                              <li><a href="prescriptioninfo.php">Prescription Info</a></li>
+                         
+                            </ul>
+                        </li>
                         <li><a href="../index.php">Logout</a></li>
-                    </ul>
-                </div>
+                </ul>                        
             </div>
         </div>
     </div>
 
+<p align="center"><img border="1" src="img/createprescription.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
 
 
 <form form style="text-align:center" action="insertprescription.php" method="post">
-  <fieldset>
+ <fieldset>
 <legend>Enter Prescription Information:</legend>
-Prescription: <input type="text" name="prescriptionid"><br>
-StaffID: <input type="text" name="staffid"><br>
-License: <input type="text" name="license"><br>
-Medicine Name: <input type="text" name="med"><br>
-Dosage: <input type="text" name="dosage"><br>
-Expiry Date: <input type="text" name="exp"><br>
-
-
-
-<input type="submit">
-  </fieldset>
+  <table align="center">
+    <tr>
+      <td align="right">Prescription:</td>
+      <td align="left"><input type="text" name="prescriptionid" required/></td>
+    </tr>
+    <tr>
+      <td align="right">StaffID:</td>
+      <td align="left"><input type="text" name="staffid" required /></td>
+    </tr>   
+    <tr>
+      <td align="right">License:</td>
+      <td align="left"><input type="text" name="license" required/></td>
+    </tr> 
+    <tr>
+      <td align="right">Medicine Name:</td>
+      <td align="left"><input type="text" name="med" required/></td>
+    </tr> 
+    <tr>
+      <td align="right">Dosage:</td>
+      <td align="left"><input type="number" name="dosage" min="1" max="25"required/></td>
+    </tr> 
+    <tr>
+      <td align="right">Expiry Date:</td>
+      <td align="left"><input type="text" name="exp" required/></td>
+    </tr>  
+    <tr>
+      <td></td>
+       <td align="center"><i> *Date must be in format YYYY/MM. <i></td>
+  </table><br>
+  <input type="submit">
+</fieldset>
 </form>
 
 

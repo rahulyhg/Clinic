@@ -45,6 +45,7 @@ function gotos()
                     <ul class="nav">
                         <li class="active"><a href="#">View My Information</a></li>
                         <li><a href="pappointments.php">View My Appointments</a></li>	
+                        <li><a href="viewmap.php">View Map</a></li>
                         <li><a href="../index.php">Logout</a></li>
                     </ul>
                 </div>

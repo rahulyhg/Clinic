@@ -22,22 +22,42 @@
 		  </div>
 		  </h1>
 
-        <div class="navbar">
+                <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li><a href="receptionistmain.php">View My Information</a></li>
-                        <li class="active"><a href="viewappointments.php">View Appointments</a></li> 
-                        <li><a href="setappointment.php">Set Appointment</a></li>
-                          <li><a href="deleteappointment.php">Delete Appointment</a></li>
-                        <li><a href="createpatient.php">Create New Patient</a></li>
-                        <li><a href="patientsearch.php">Patient Search</a></li>
-                        <li><a href="patientpickupmed.php">Patient Pickup Medicine</a></li>
+                        <li><a href="showmyinfo.php">Personal Information</a></li>
+
+                        
+
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              About Patients
+                              <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="createpatient.php">Create New Patient</a></li>
+                              <li><a href="patientsearch.php">Patient Search</a></li>
+                              <li><a href="patientpickupmed.php">Patient's Medicine Pickup</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Appointments 
+                            <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li class="active"><a href="viewappointments.php">View Appointments</a></li>
+                              <li><a href="setappointment.php">Set Appointment</a></li>
+                              <li><a href="deleteappointment.php">Delete Appointments</a></li>
+                         
+                            </ul>
+                        </li>
                         <li><a href="../index.php">Logout</a></li>
-                    </ul>
-                </div>
+                </ul>                        
             </div>
         </div>
+    </div>
 
 
     </div>
@@ -49,31 +69,34 @@
 
 
 <br>
+<p align="center"><img border="1" src="img/viewappointments.jpg" alt="The Clinic" style="center" width="800" height="350"></p>
 
+<p align="center"><b>View:</b></p>
 <form form style="text-align:center" action="maxpatient.php">
-    <input type="submit" value="Max/Min #ofAppointments">
+    <input type="submit" value="Max/Min. # of Appointments">
 </form>
 
-<p align="center"> <br><b> OR </b><br><br> </p>
 
 <form form style="text-align:center" action="insertallappts.php">
     <input type="submit" value="View All Appointments">
 </form>
 
-<p align="center"> <br><b> OR </b><br><br> </p>
+<p align="center"> <b> OR </b><br> </p>
 
-<form form style="text-align:center" action="searchq/searchapptid.php" method="post">
+<p align="center"><b>Search by:</b></p>
+
+<form form style="text-align:center" action="searchapptid.php" method="post">
   <fieldset>
-Search by AppointmentID: <br><input type="text" name="apptid"><br>
+AppointmentID: <br><input type="text" name="apptid"><br>
 <input type="submit">
   </fieldset>
 </form>
 
-<p align="center"> <br><b> OR </b><br><br> </p>
 
-<form form style="text-align:center" action="searchq/searchcc.php" method="post">
+
+<form form style="text-align:center" action="searchcc.php" method="post">
   <fieldset>
-Search by CareCard#: <br><input type="text" name="carecard"><br>
+CareCard#: <br><input type="text" name="carecard"><br>
 <input type="submit">
   </fieldset>
 </form>
